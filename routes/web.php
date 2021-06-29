@@ -22,5 +22,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('login1', function () {
-    return view('login');
+    return view('auth.login');
+});
+
+Route::get('login2', function () {
+    return view('auth.register');
 });
