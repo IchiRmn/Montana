@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('img/icon.png') }}" rel="icon">
   <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -50,14 +50,15 @@
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">Restaurantly</a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="index.html" class="logo me-auto me-lg-0"><img src="{{ asset('img/logo.png') }}" alt="" class="img-fluid"></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto" href="#about">Login</a></li>
-          <li class="dropdown"><a href="#" class="book-a-table-btn scrollto d-none d-lg-flex p-2"><span>login</span> <i class="bi bi-chevron-down"></i></a>
+          <!-- <li><a class="nav-link scrollto" href="#about">Login</a></li> -->
+          <li class="dropdown"><a href="#" class="book-a-table-btn scrollto d-none d-lg-flex p-2"><span>login</span> </a>
+                    <!-- <i class="bi bi-chevron-down"></i> -->
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -77,7 +78,7 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-     
+
 
     </div>
   </header><!-- End Header -->
@@ -87,8 +88,8 @@
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
       <div class="row">
         <div class="col text-center">
-          <h1>Welcome to <span style="color:green;">Montana</span></h1>
-          <h2>We bring the happinnes to your trip!</h2>
+          <h1>Enjoy Your Trip With <span style="color:#27AE60;">Montana</span></h1>
+          <h2>Book Your Ticket Now!</h2>
 
           <div class="btns">
             <a href="#menu" class="btn-menu animated fadeInUp scrollto">see the list</a>
@@ -111,7 +112,7 @@
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
- <!-- Vendor JS Files -->
+  <!-- Vendor JS Files -->
   <script src="{{ asset('vendor/aos/aos.js') }}"></script>
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
