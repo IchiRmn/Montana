@@ -9,7 +9,9 @@
                 @csrf
                 
                 <div class="login100-pic js-tilt" style="margin-left: 110px; padding-top: 40px;" data-tilt>
-                    <img src="{{ asset('img/logo-2.png') }}" alt="IMG">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('img/logo-2.png') }}" alt="IMG">
+                    </a>
                 </div>
                 <span class="login100-form-title" style="padding-bottom:30px; padding-top: 40px;">
                     Registration
@@ -78,7 +80,14 @@
                         Regist
                     </button>
                 </div>
-
+                <div class="text-center p-t-80">
+                    <span class="txt2">
+                        Do you have account?
+                    </span>
+                    <a class="txt2" href="{{ route('login') }}">
+                        <span class=>Login</span>
+                    </a>
+                </div>
             </form>
         </div>
     </div>
