@@ -66,7 +66,7 @@
                     </ul>
                 </div>
                 @endif
-                <div class="wrap-input100 validate-input" data-validate = "Phone Number is required">
+                {{-- <div class="wrap-input100 validate-input" data-validate = "Phone Number is required">
                     <input id="phone" class="input100" type="text" name="phone" placeholder="Phone Number" value="{{ old('phone') }}" autocomplete="email">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
@@ -74,7 +74,7 @@
                             <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
                           </svg>
                     </span>
-                </div>
+                </div> --}}
                 <div class="container-login100-form-btn" style="width: 25%;">
                     <button type="submit" class="login100-form-btn">
                         Regist

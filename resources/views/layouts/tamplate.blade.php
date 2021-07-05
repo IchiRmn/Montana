@@ -27,6 +27,8 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  
+
 
   <!-- =======================================================
   * Template Name: Restaurantly - v3.3.0
@@ -50,7 +52,7 @@
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html" class="logo me-auto me-lg-0"><img src="{{ asset('img/logo.png') }}" alt="" class="img-fluid"></a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="{{ url('/') }}" class="logo me-auto me-lg-0"><img src="{{ asset('img/logo.png') }}" alt="" class="img-fluid"></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
