@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MountainController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,18 +17,16 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/list', function () {
-    return view('draft');
-});
+Route::get('/mount', [MountainController::class, 'index']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('login1', function () {
-    return view('auth.login');
-});
+// Route::get('login1', function () {
+//     return view('auth.login');
+// });
 
-Route::get('login2', function () {
-    return view('auth.register');
-});
+// Route::get('login2', function () {
+//     return view('auth.register');
+// });

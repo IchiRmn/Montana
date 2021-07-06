@@ -1439,6 +1439,8 @@ section {
   }
 
   .chefs .member img {
+    width: 10cm;
+    height: 7cm;
       transition: all ease-in-out 0.4s;
   }
 
