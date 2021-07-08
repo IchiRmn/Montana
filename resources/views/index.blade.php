@@ -10,7 +10,7 @@
        <h2>Book Your Ticket Now!</h2>
 
        <div class="btns">
-         <a href="{{ url('/mount') }}" class="btn-menu animated fadeInUp scrollto">see the list</a>
+         <a href="{{ url('/list') }}" class="btn-menu animated fadeInUp scrollto">see the list</a>
        </div>
      </div>
 

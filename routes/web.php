@@ -17,11 +17,13 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/mount', [MountainController::class, 'index']);
-
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/list', [MountainController::class, 'index']);
+Route::get('/mount', [MountainController::class, 'show']);
+
+
 
 // Route::get('login1', function () {
 //     return view('auth.login');

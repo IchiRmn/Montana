@@ -4,23 +4,7 @@
 
 @section('section')
 
-<main id="main">
 
-    <main id="main">
-        <section class="breadcrumbs">
-          <div class="container">
-    
-            <div class="d-flex justify-content-between align-items-center">
-              {{-- <h2>Inner Page</h2>
-              <ol>
-                <li><a href="index.html">Home</a></li>
-                <li>Inner Page</li>
-              </ol>
-            </div> --}}
-    
-          </div>
-        </section>
-    
     <!-- ======= Chefs Section ======= -->
     <section id="chefs" class="chefs">
       <div class="container" data-aos="fade-up">
@@ -55,10 +39,7 @@
       </div>
     </section><!-- End Chefs Section -->
 
-    
-      </main><!-- End #main -->
 
-  </main><!-- End #main -->
 
 @endsection
 
