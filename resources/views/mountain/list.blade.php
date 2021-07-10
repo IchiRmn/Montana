@@ -26,7 +26,7 @@
                   <h4>{{ $mount->name }}</h4>
                 </div>
                 <div class="social" style="margin-bottom: 20px">
-                  <a href="">
+                  <a href="{{ url('/mount', [$mount->id] ) }}">
                     <span>
                       BOOK
                     </span> 

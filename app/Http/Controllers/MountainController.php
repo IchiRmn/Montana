@@ -51,51 +51,44 @@ class MountainController extends Controller
      * @return \Illuminate\Http\Response
      * 
      */
-    public function show()
+    public function show($id)
     {
-        // looping for date
-        $date_start = date('Y-m-d', strtotime("-1days"));
-        $date_end = date('Y-m-d', strtotime("+8days"));
+        $selectMountain = mountain::where('id', $id)->get();
+        // // // looping for date
+        $date_start = date('Y-m-d', strtotime("+2days"));
+        $date_end = date('Y-m-d', strtotime("+11days"));
         $date_ = array();
 
         while ($date_start <= $date_end) {
 
-            $date_start = date('Y-m-d', strtotime(
-                '+1 days',
-                strtotime($date_start)
-            ));
+            $date_start = date('Y-m-d', strtotime('+1 days', strtotime($date_start)));
             $date_[] = $date_start;
         }
-        // endlooping
-        
-        // print_r($date_);
+        // // // endlooping
+
+        // // // print_r($date_);
         $qta = array();
 
-        // looping for quota
+        // // // looping for quota
         for ($i = 0; $i <= 9; $i++) {
-            // $mount = mountain::where('id', $id);
-            $quota0 = quota::where('quota_date', $date_[$i]);
+            $mounts = mountain::where('id', $id);
+            $quota0 = quota::where('quota_date', $date_[$i])->where('mount_id', $id);
             if ($quota0->exists()) {
                 foreach ($quota0->get() as $quota) {
                     $qta[] = $quota->quota;
                 }
             } else {
-                // foreach ($mount->get() as $mount) {
-                //     $a = $mount->quota;
-                // }
-                $qta[] = 300;
+                foreach ($mounts->get() as $mount) {
+                    $qta[] = $mount->quota;
+                }
+                // $qta[] = 300;
             }
         }
-        // endlooping
+        // // // endlooping
 
-        // print_r($qta);
+        // // // print_r($qta);
 
-        // $new_date = [
-        //     'date_' => $date_,
-        //     'qta' => $qta
-        // ];
-
-        return view('mountain.mount')->with('dates', $date_)->with('qta', $qta);
+        return view('mountain.mount')->with('selectMountain', $selectMountain)->with('dates', $date_)->with('qta', $qta);
     }
 
 // foreach ($quota as $q) {

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Mountain;
 use App\Http\Controllers\MountainController;
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/list', [MountainController::class, 'index']);
-Route::get('/mount', [MountainController::class, 'show']);
+Route::get('/mount/{id}', [MountainController::class, 'show']);
 
 
 
