@@ -4,8 +4,12 @@
 @section('title', 'Mount')
 
 @section('section')
+
+@include('layouts.top')
+
 <!-- ======= Mount Section ======= -->
-<section id="about" class="about">
+<main id="main">
+  <section id="about" class="about">
     <div class="container" data-aos="fade-up">
 
       <div class="row">
@@ -32,13 +36,12 @@
           </p>
         </div>
       </div>
-
     </div>
   </section>
   <!-- End Mount Section -->
 
-   <!-- ======= Why Us Section ======= -->
-   <section id="why-us" class="why-us">
+    <!-- ======= Why Us Section ======= -->
+  <section id="why-us" class="why-us">
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
@@ -47,15 +50,19 @@
       </div>
 
       <div class="row">
+        
+        @foreach ($dates as $index => $value)
         <div class="col-lg-2 mb-5" style="margin-right: 15px; margin-left:15px;">
           <div class="box" data-aos="zoom-in" data-aos-delay="100">
             <span></span>
-            <h4></h4>
-            <p></p>
+            <h4>{{ $dates[$index] }}</h4>
+            <p>{{ $qta[$index] }}</p>
           </div>
         </div>
+        @endforeach
       </div>
     </div>
-   
   </section><!-- End Why Us Section -->
+  
+</main><!-- End #main -->
   @endsection

@@ -4,8 +4,10 @@
 
 @section('section')
 
-
+@include('layouts.top')
     <!-- ======= Chefs Section ======= -->
+<main id="main">
+  
     <section id="chefs" class="chefs">
       <div class="container" data-aos="fade-up">
 
@@ -38,6 +40,8 @@
 
       </div>
     </section><!-- End Chefs Section -->
+    
+</main><!-- End #main -->
 
 @endsection
 

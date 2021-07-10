@@ -53,24 +53,28 @@ class MountainController extends Controller
      */
     public function show()
     {
+        // looping for date
+        $date_start = date('Y-m-d', strtotime("-1days"));
+        $date_end = date('Y-m-d', strtotime("+8days"));
+        $date_ = array();
 
-        $tanggal1 = date('Y-m-d', strtotime("-1days"));
-        $tanggal2 = date('Y-m-d', strtotime("+8days"));
-        $tanggal_baru = array();
+        while ($date_start <= $date_end) {
 
-        while ($tanggal1 <= $tanggal2) {
-
-            $tanggal1 = date('Y-m-d', strtotime(
+            $date_start = date('Y-m-d', strtotime(
                 '+1 days',
-                strtotime($tanggal1)
+                strtotime($date_start)
             ));
-            $tanggal_baru[] = $tanggal1;
+            $date_[] = $date_start;
         }
-        // print_r($tanggal_baru);
+        // endlooping
+        
+        // print_r($date_);
         $qta = array();
+
+        // looping for quota
         for ($i = 0; $i <= 9; $i++) {
             // $mount = mountain::where('id', $id);
-            $quota0 = quota::where('quota_date', $tanggal_baru[$i]);
+            $quota0 = quota::where('quota_date', $date_[$i]);
             if ($quota0->exists()) {
                 foreach ($quota0->get() as $quota) {
                     $qta[] = $quota->quota;
@@ -82,57 +86,16 @@ class MountainController extends Controller
                 $qta[] = 300;
             }
         }
-        print_r($qta);
-        // looping 1
+        // endlooping
 
-        // endlooping 1
+        // print_r($qta);
 
-        // // // looping 2
-        // $b = 0;
-        // // $mount = mountain::where('id', $id);
-        // $quota1 = quota::where('quota_date', $tanggal_baru[1]);
-        // if ($quota1->exists()) {
-        //     foreach ($quota1->get() as $quota) {
-        //         $b = $quota->quota;
-        //     }
-        // } else {
-        //     // foreach ($mount->get() as $mount) {
-        //     //     $b = $mount->quota;
-        //     // }
-        // }
-        // // // endlooping 2
+        // $new_date = [
+        //     'date_' => $date_,
+        //     'qta' => $qta
+        // ];
 
-        // // // looping 3
-        // $c = 0;
-        // // $mount = mountain::where('id', $id);
-        // $quota2 = quota::where('quota_date', $tanggal_baru[2]);
-        // if ($quota2->exists()) {
-        //     foreach ($quota2->get() as $quota) {
-        //         $c = $quota->quota;
-        //     }
-        // } else {
-        //     // foreach ($mount->get() as $mount) {
-        //     //     $c = $mount->quota;
-        //     // }
-        // }
-        // // // endlooping 3
-
-        // // // looping 4
-        // $d = 0;
-        // // $mount = mountain::where('id', $id);
-        // $quota3 = quota::where('quota_date', $tanggal_baru[3]);
-        // if ($quota3->exists()) {
-        //     foreach ($quota3->get() as $quota) {
-        //         $d = $quota->quota;
-        //     }
-        // } else {
-        //     // foreach ($mount->get() as $mount) {
-        //     //     $d = $mount->quota;
-        //     // }
-        // }
-        // // // endlooping 4
-
-        return view('mountain.mount')->with('tgl_baru', $tanggal_baru);
+        return view('mountain.mount')->with('dates', $date_)->with('qta', $qta);
     }
 
 // foreach ($quota as $q) {
