@@ -39,7 +39,5 @@
       </div>
     </section><!-- End Chefs Section -->
 
-
-
 @endsection
 

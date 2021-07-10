@@ -47,89 +47,15 @@
       </div>
 
       <div class="row">
-
         <div class="col-lg-2 mb-5" style="margin-right: 15px; margin-left:15px;">
           <div class="box" data-aos="zoom-in" data-aos-delay="100">
-            <span>01</span>
-            <h4>Lorem Ipsum</h4>
+            <span></span>
+            <h4></h4>
             <p></p>
           </div>
         </div>
-
-        <div class="col-lg-2 mb-5" style="margin-right: 15px; margin-left:15px;">
-          <div class="box" data-aos="zoom-in" data-aos-delay="200">
-            <span>02</span>
-            <h4>Repellat Nihil</h4>
-            
-          </div>
-        </div>
-
-        <div class="col-lg-2 mb-5" style="margin-right: 15px; margin-left:15px;">
-          <div class="box" data-aos="zoom-in" data-aos-delay="300">
-            <span>03</span>
-            <h4> Ad ad velit qui</h4>
-            
-          </div>
-        </div>
-
-        <div class="col-lg-2 mb-5" style="margin-right: 15px; margin-left:15px;">
-            <div class="box" data-aos="zoom-in" data-aos-delay="200">
-              <span>02</span>
-              <h4>Repellat Nihil</h4>
-            
-            </div>
-          </div>
-  
-          <div class="col-lg-2 mb-5" style="margin-right: 15px; margin-left:15px;">
-            <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <span>03</span>
-              <h4> Ad ad velit qui</h4>
-             
-            </div>
-          </div>
-
-          <div class="col-lg-2 mb-5" style="margin-right: 15px; margin-left:15px;">
-            <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <span>03</span>
-              <h4> Ad ad velit qui</h4>
-              
-            </div>
-          </div>
-  
-          <div class="col-lg-2 mb-5" style="margin-right: 15px; margin-left:15px;">
-              <div class="box" data-aos="zoom-in" data-aos-delay="200">
-                <span>02</span>
-                <h4>Repellat Nihil</h4>
-              
-              </div>
-            </div>
-    
-            <div class="col-lg-2 mb-5" style="margin-right: 15px; margin-left:15px;">
-              <div class="box" data-aos="zoom-in" data-aos-delay="300">
-                <span>03</span>
-                <h4> Ad ad velit qui</h4>
-               
-              </div>
-            </div>
-
-
       </div>
-   @php
-       //mendapatkan tgl kemarin
-$tglskr = mktime(0, 0, 0, date("m"), date("d") - 1, date("Y"));
-$tglkemarin = date("Y-m-d", $tglskr);
-//mendapatkan tgl 30 hari kemarin
-$tgl_30_hari_lalu = mktime(0, 0, 0, date("m"), date("d") - 30, date("Y"));
-$tgllalu = date("Y-m-d", $tgl_30_hari_lalu);
-$tgl_skr = new DateTime($tglkemarin, new DateTimeZone("Europe/London"));
-$tgl_lalu = new DateTime($tgllalu, new DateTimeZone("Europe/London"));
-//looping
-do {
-    echo $tgl_skr->format("l j F Y");
-    echo '<br>';
-    $tgl_skr->modify("-1 day");
-} while ($tgl_skr >= $tgl_lalu);
-   @endphp
     </div>
+   
   </section><!-- End Why Us Section -->
   @endsection
