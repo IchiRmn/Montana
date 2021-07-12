@@ -924,7 +924,7 @@ section {
     font-size: 40px;
     font-weight: 800;
     text-align: center;
-    color: #cda45e;
+    color: #009b40;
     font-family: "Poppins",
     sans-serif;
     }
@@ -940,7 +940,7 @@ section {
         text-align: center;
     }
 
-    .why-us .box button {
+    .why-us .box a {
         transition: color 0.3s;
         color: white;
         /* margin-left: 61px;
@@ -958,7 +958,7 @@ section {
         border: 2px solid #a1a1a1;
 }
 
-.why-us .box button:hover {
+.why-us .box a:hover {
     background: #a1a1a1;
     color: #fff;
 }

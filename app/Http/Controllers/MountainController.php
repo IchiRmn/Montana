@@ -33,6 +33,13 @@ class MountainController extends Controller
         //
     }
 
+    public function regist(Request $request)
+    {
+        $member = $request->member;
+        $date = $request->input('date');
+
+        return view('mountain.regist');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -54,6 +61,7 @@ class MountainController extends Controller
     public function show($id)
     {
         $selectMountain = mountain::where('id', $id)->get();
+
         // // // looping for date
         $date_start = date('Y-m-d', strtotime("+2days"));
         $date_end = date('Y-m-d', strtotime("+11days"));

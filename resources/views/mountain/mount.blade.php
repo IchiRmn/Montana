@@ -55,40 +55,59 @@
             <h2>avalible</h2>
             <h3>{{ $qta[$index] }}</h3>
             <div class="btun">
-              <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                book
-              </button>
+              <a href="#my_modal" data-toggle="modal" data-book-id="{{ $dates[$index] }}">Book</a>
             </div>
           </div>
+          <input type="text" name="tanggal" value={{ $dates[$index] }} hidden>
         </div>
         @endforeach
+
       </div>
     </div>
   </section>
   <!-- End Date Section -->
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p style="color: black">apak benar?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+  <form action="/mount/regist" method="POST">
+    @csrf
+    <div class="modal fade" id="my_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color: rgb(49, 49, 49);">
+          <div class="modal-header" style="border-color: rgb(49, 49, 49)">
+            <h5 class="modal-title" id="exampleModalLongTitle">How many member will join the trip?</h5>
+            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Choose</label>
+              </div>
+              <select class="custom-select" name="member" id="member">
+                {{-- <option selected>Choose...</option> --}}
+                @for ($i = 1; $i <= 10 ; $i++)     
+                <option value={{ $i }}>{{ $i }}</option>
+                @endfor
+              </select>
+              <input hidden type="text" name="date" value=""/>
+            </div>          
+          </div>
+          <div class="modal-footer" style="border-color: rgb(49, 49, 49)">
+            <button type="submit" class="btn btn-success">Go!</button>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- Modal -->
-
+   </div>
+  </form>
+<!-- Modal -->
 </main>
+
+<script type="text/javascript">
+$('#my_modal').on('show.bs.modal', function(e) {
+    var bookId = $(e.relatedTarget).data('book-id');
+    $(e.currentTarget).find('input[name="date"]').val(bookId);
+});
+	</script>
 <!-- End #main -->
   @endsection

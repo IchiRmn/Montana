@@ -18,12 +18,15 @@ Route::get('/', function () {
     return view('index');
 });
 
+// Route::get('/cobain', function () {
+//     return view('cobain');
+// });
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/list', [MountainController::class, 'index']);
 Route::get('/mount/{id}', [MountainController::class, 'show']);
-
+Route::post('/mount/regist', [MountainController::class, 'regist']);
 
 
 // Route::get('login1', function () {
