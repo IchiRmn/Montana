@@ -61,7 +61,7 @@ class MountainController extends Controller
         }
         // // // endlooping
 
-        return view('mountain.regist', $data)->with('mount', $mount)->with('member', $member)->with('date_', $date_);
+        return view('mountain.regist', $data)->with('mount', $mount)->with('member', $member)->with('date_', $date_)->with('date', $date);
     }
     /**
      * Store a newly created resource in storage.
