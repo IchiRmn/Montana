@@ -16,12 +16,12 @@ body {
 }
 
 a {
-    color: #cda45e;
+    color: #ffffff;
     text-decoration: none;
 }
 
 a:hover {
-    color: #d9ba85;
+    color: #8b8b8b;
     text-decoration: none;
 }
 
@@ -31,7 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Playfair Display", serif;
+    font-family: var(--bs-font-sans-serif);
 }
 
 /*--------------------------------------------------------------
@@ -743,7 +743,7 @@ section {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .breadcrumbs ol li+li {

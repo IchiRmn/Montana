@@ -2,6 +2,8 @@
 
 @section('title', 'List')
 
+@section('top', 'Mountain List')
+
 @section('section')
 
 @include('layouts.top')

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Mountain;
 use App\Http\Controllers\MountainController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +27,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/list', [MountainController::class, 'index']);
 Route::get('/mount/{id}', [MountainController::class, 'show']);
-Route::post('/mount/regist', [MountainController::class, 'regist']);
+Route::get('/regist', function () {
+    return redirect('/list');
+});
+Route::post('/regist', [MountainController::class, 'regist']);
 
 
 // Route::get('login1', function () {

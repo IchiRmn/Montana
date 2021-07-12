@@ -9,6 +9,7 @@ use App\Models\Quota;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
+
 class MountainController extends Controller
 {
     /**
@@ -35,10 +36,32 @@ class MountainController extends Controller
 
     public function regist(Request $request)
     {
+
         $member = $request->member;
         $date = $request->input('date');
+        $mountainId = $request->input('mountainId');
 
-        return view('mountain.regist');
+        $mount = mountain::where('id', $mountainId)->get();
+
+        foreach ($mount as $mount) {
+            $data['name'] = $mount->name;
+            $data['img'] = $mount->img;
+            $count = $mount->days;
+        }
+
+        // // // looping for date
+        $date_start = $date;
+        $date_end = date('Y-m-d', strtotime($date_start . " +{$count} days"));
+        $date_ = array();
+
+        while ($date_start < $date_end) {
+
+            $date_start = date('Y-m-d', strtotime('+1 days', strtotime($date_start)));
+            $date_[] = $date_start;
+        }
+        // // // endlooping
+
+        return view('mountain.regist', $data)->with('mount', $mount)->with('member', $member)->with('date_', $date_);
     }
     /**
      * Store a newly created resource in storage.

@@ -3,9 +3,20 @@
 
 @section('title', 'Mount')
 
+@section('top', 'Details')
+
+@section('previous')
+<a href={{ url('/list'); }}>
+  <i class="bi bi-arrow-left-circle""></i>
+  <span>Previous</span>
+</a>
+@endsection
+
 @section('section')
 
 @include('layouts.top')
+
+@include('modals.member')
 
 <!-- ======= Mount Section ======= -->
 <main id="main">
@@ -55,20 +66,18 @@
             <h2>avalible</h2>
             <h3>{{ $qta[$index] }}</h3>
             <div class="btun">
-              <a href="#my_modal" data-toggle="modal" data-book-id="{{ $dates[$index] }}">Book</a>
+              <a href="#my_modal" data-bs-toggle="modal" data-book-id="{{ $dates[$index] }}">Book</a>
             </div>
           </div>
-          <input type="text" name="tanggal" value={{ $dates[$index] }} hidden>
         </div>
         @endforeach
-
       </div>
     </div>
   </section>
   <!-- End Date Section -->
 
   <!-- Modal -->
-  <form action="/mount/regist" method="POST">
+  {{-- <form action="/mount/regist" method="POST">
     @csrf
     <div class="modal fade" id="my_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -85,12 +94,12 @@
                 <label class="input-group-text" for="inputGroupSelect01">Choose</label>
               </div>
               <select class="custom-select" name="member" id="member">
-                {{-- <option selected>Choose...</option> --}}
+                <option selected>Choose...</option>
                 @for ($i = 1; $i <= 10 ; $i++)     
                 <option value={{ $i }}>{{ $i }}</option>
                 @endfor
               </select>
-              <input hidden type="text" name="date" value=""/>
+              <input type="text" name="date" value=""/>
             </div>          
           </div>
           <div class="modal-footer" style="border-color: rgb(49, 49, 49)">
@@ -99,15 +108,10 @@
         </div>
       </div>
    </div>
-  </form>
+  </form> --}}
 <!-- Modal -->
 </main>
 
-<script type="text/javascript">
-$('#my_modal').on('show.bs.modal', function(e) {
-    var bookId = $(e.relatedTarget).data('book-id');
-    $(e.currentTarget).find('input[name="date"]').val(bookId);
-});
-	</script>
+
 <!-- End #main -->
   @endsection
