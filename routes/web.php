@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Mountain;
 use App\Http\Controllers\MountainController;
+use App\Http\Controllers\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,12 +27,19 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/admin', [AdminController::class, 'index'])->middleware('role:1');
+
 Route::get('/list', [MountainController::class, 'index']);
 Route::get('/mount/{id}', [MountainController::class, 'show']);
+Route::post('/regist', [MountainController::class, 'regist'])->middleware('auth');
 Route::get('/regist', function () {
     return redirect('/list');
 });
-Route::post('/regist', [MountainController::class, 'regist']);
+
+
+Route::get('/cobain', function () {
+    return view('home');
+});
 
 
 // Route::get('login1', function () {

@@ -1302,32 +1302,37 @@ section {
 }
 
 .book-a-table .php-email-form input,
-.book-a-table .php-email-form textarea {
+.book-a-table .php-email-form textarea,
+.book-a-table .php-email-form select {
     border-radius: 0;
     box-shadow: none;
     font-size: 14px;
     background: #0c0b09;
-    border-color: #625b4b;
+    border-color: #a49b89;
     color: white;
 }
 
 .book-a-table .php-email-form input::-webkit-input-placeholder,
-.book-a-table .php-email-form textarea::-webkit-input-placeholder {
+.book-a-table .php-email-form textarea::-webkit-input-placeholder,
+.book-a-table .php-email-form select::-webkit-input-placeholder {
     color: #a49b89;
 }
 
 .book-a-table .php-email-form input::-moz-placeholder,
-.book-a-table .php-email-form textarea::-moz-placeholder {
+.book-a-table .php-email-form textarea::-moz-placeholder,
+.book-a-table .php-email-form select::-moz-placeholder {
     color: #a49b89;
 }
 
 .book-a-table .php-email-form input::placeholder,
-.book-a-table .php-email-form textarea::placeholder {
+.book-a-table .php-email-form textarea::placeholder,
+.book-a-table .php-email-form select::placeholder {
     color: #a49b89;
 }
 
 .book-a-table .php-email-form input:focus,
-.book-a-table .php-email-form textarea:focus {
+.book-a-table .php-email-form textarea:focus,
+.book-a-table .php-email-form select:focus {
     border-color: #cda45e;
 }
 
@@ -1880,4 +1885,8 @@ section {
     text-align: center;
     font-size: 13px;
     color: #fff;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }

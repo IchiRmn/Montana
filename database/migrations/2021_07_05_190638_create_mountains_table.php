@@ -19,6 +19,8 @@ class CreateMountainsTable extends Migration
             $table->integer('height');
             $table->string('img');
             $table->text('description');
+            $table->integer('days');
+            $table->integer('quota');
             $table->timestamps();
         });
     }

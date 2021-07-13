@@ -3,6 +3,14 @@
 @section('auth')
 <div class="limiter">
     <div class="container-login100">
+
+         @if (session('error'))
+         <div class="alert alert-danger alert-dismissible fade show" style="position: fixed; z-index: 999; margin-bottom: 500px;" role="alert"  id="danger-alert">
+            {{ session('error') }}!
+            <button type="button" class="btn-close btn-outline-danger" data-bs-dismiss="alert" aria-label="Close">
+        </div>
+        @endif
+
         <div class="wrap-login100" style="padding-bottom: 150px">
             <div class="login100-pic js-tilt" data-tilt >
                 <a href="{{ url('/') }}">
@@ -67,4 +75,16 @@
         </div>
     </div>
 </div>
+
+{{-- <script type="text/javascript">
+
+$(document).ready(function() {
+  $("#success-danger").hide();
+  $("#myWish").click(function showAlert() {
+    $("#danger-alert").fadeTo(2000, 500).slideUp(500, function() {
+      $("#-alert").slideUp(500);
+    });
+  });
+});
+</script> --}}
 @endsection
