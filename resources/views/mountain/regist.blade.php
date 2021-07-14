@@ -85,7 +85,7 @@
   </section>
   <!-- End Registration Section -->
   
-  <!-- ======= Book A Table Section ======= -->
+  <!-- ======= Form Section ======= -->
   <section id="book-a-table" class="book-a-table">
     <div class="container" data-aos="fade-up">
 
@@ -93,47 +93,52 @@
         <p>Form Member</p>
       </div>
 
-      <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+      <form data-aos="fade-up" data-aos-delay="100" class="needs-validation" novalidate>
         
-        @for ($i = 1; $i <= 3; $i++)
+        {{-- @for ($i = 1; $i <= 3; $i++) --}}
         
         <div class="section-title" style="padding-bottom: 20px;">
-          <h2>Member {{ $i }}</h2>
+          <h2>Member </h2>
         </div>
+
         <div class="row">
 
-          <div class="col-lg-4 col-md-6 form-group form-floating">
-            <input type="text" name="identityNumber" class="form-control" id="identityNumber" placeholder=" " style="height: 60px;" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+          <div class="col-lg-4 col-md-6 form-floating">
+            
+            <input type="text" name="identityNumber" id="identityNumber" placeholder=" " class="form-control btn-light" style="height: 60px; background-color: black; color: white" required>
             <label for="identityNumber" style="margin-left: 10px; font-size: 14px; color: rgb(182, 182, 182)">Identity Number (KTP, SIM, etc)</label>
-            <div class="validate"></div>
+            <div class="invalid-feedback">
+              Please provide a valid city.
+            </div>
+            
           </div>
 
-          <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0 form-floating">
-            <input type="email" class="form-control" name="email" id="email" placeholder=" " style="height: 60px;" data-rule="email" data-msg="Please enter a valid email">
+          <div class="col-lg-4 col-md-6 mt-3 mt-md-0 mb-4 form-floating">
+            <input type="email" class="form-control" name="email" id="email" placeholder=" " style="height: 60px; background-color: black; color: white" data-rule="email" data-msg="Please enter a valid email">
             <label for="email" style="margin-left: 10px; font-size: 14px; color: rgb(182, 182, 182)">Email address</label>
             <div class="validate"></div>
           </div>
 
           <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0 form-floating">
-            <input type="numeric" class="form-control" name="phone" id="phone" placeholder=" " style="height: 60px;" data-rule="email" data-msg="Please enter a valid email">
+            <input type="numeric" class="form-control" name="phone" id="phone" placeholder=" " style="height: 60px; background-color: black; color: white" data-rule="email" data-msg="Please enter a valid email">
             <label for="phone" style="margin-left: 10px; font-size: 14px; color: rgb(182, 182, 182)">Phone Number</label>
             <div class="validate"></div>
           </div>
 
-          <div class="col-lg-4 col-md-6 form-group mt-3 form-floating">
-            <input type="text" class="form-control" name="name" id="name" placeholder=" " style="height: 60px;" data-rule="email" data-msg="Please enter a valid email">
+          <div class="col-lg-4 col-md-6 form-group mt-3 mb-4 form-floating">
+            <input type="text" class="form-control" name="name" id="name" placeholder=" " style="height: 60px; background-color: black; color: white" data-rule="email" data-msg="Please enter a valid email">
             <label for="name" style="margin-left: 10px; font-size: 14px; color: rgb(182, 182, 182)">Your Name</label>
             <div class="validate"></div>
           </div>
 
           <div class="col-lg-4 col-md-6 form-group mt-3 form-floating">
-            <input type="date" class="form-control" name="birthdate" id="birtdate" placeholder=" " style="height: 60px;" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <input type="date" class="form-control" name="birthdate" id="birtdate" placeholder=" " style="height: 60px; background-color: black; color: white" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
             <label for="birthdate" style="margin-left: 10px; color: rgb(182, 182, 182)">Birthdate</label>
             <div class="validate"></div>
           </div>
           
           <div class="col-lg-4 col-md-6 form-group mt-3 form-floating">
-            <select class="form-select" name="gender" id="gender" aria-label="Floating label select example" style="height: 60px; ">
+            <select class="form-select" name="gender" id="gender" aria-label="Floating label select example" style="height: 60px; background-color: black; color: white;">
               <option value="1">Male</option>
               <option value="2">Female</option>
               <i class="bi bi-arrow-down-left-circle"></i>
@@ -143,26 +148,43 @@
           </div>
         </div>
 
-        <div class="form-group mt-3 form-floating" style="margin-bottom: 100px;">
-          <textarea class="form-control" name="addres" rows="5" placeholder=" " id="addres" style="height: 100px; "></textarea>
-          <label for="addres" style="margin-left: 10px; color: rgb(182, 182, 182)">Address</label>
+        <div class="form-group mt-3 form-floating col-sm-6" style="margin-bottom: 100px;">
+          <textarea class="form-control" name="addres" placeholder=" " id="addres" style="height: 100px; background-color: black; color: white"></textarea>
+          <label for="addres" style="margin-left: 0px; color: rgb(182, 182, 182)">Address</label>
           <div class="validate"></div>
         </div>
 
-        @endfor
-
-        <div class="mb-3">
-          <div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-        </div>
+        {{-- @endfor --}}
         <div class="text-center"><button type="submit">Book a Table</button></div>
       </form>
 
     </div>
-  </section><!-- End Book A Table Section -->
+  </section><!-- End Form Section -->
 </main>
 
+<script type="text/javascript">
 
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+
+</script>
   
 @endsection
