@@ -75,41 +75,6 @@
     </div>
   </section>
   <!-- End Date Section -->
-
-  <!-- Modal -->
-  {{-- <form action="/mount/regist" method="POST">
-    @csrf
-    <div class="modal fade" id="my_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" style="background-color: rgb(49, 49, 49);">
-          <div class="modal-header" style="border-color: rgb(49, 49, 49)">
-            <h5 class="modal-title" id="exampleModalLongTitle">How many member will join the trip?</h5>
-            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01">Choose</label>
-              </div>
-              <select class="custom-select" name="member" id="member">
-                <option selected>Choose...</option>
-                @for ($i = 1; $i <= 10 ; $i++)     
-                <option value={{ $i }}>{{ $i }}</option>
-                @endfor
-              </select>
-              <input type="text" name="date" value=""/>
-            </div>          
-          </div>
-          <div class="modal-footer" style="border-color: rgb(49, 49, 49)">
-            <button type="submit" class="btn btn-success">Go!</button>
-          </div>
-        </div>
-      </div>
-   </div>
-  </form> --}}
-<!-- Modal -->
 </main>
 
 
