@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Mountain;
 use App\Http\Controllers\MountainController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RegistController;
 
 
 /*
@@ -37,9 +38,7 @@ Route::get('/regist', function () {
 });
 
 
-Route::get('/cobain', function () {
-    return view('home');
-});
+Route::get('/cobain', [RegistController::class, 'index']);
 
 
 // Route::get('login1', function () {

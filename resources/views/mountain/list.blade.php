@@ -25,7 +25,7 @@
               <img src="{{ asset('img/Mountain/'.$mount->img) }}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>{{ $mount->name }}</h4>
+                  <h4>{{ $mount->mountain_name }}</h4>
                 </div>
                 <div class="social" style="margin-bottom: 20px">
                   <a href="{{ url('/mount', [$mount->id] ) }}">

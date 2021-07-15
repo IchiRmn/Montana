@@ -50,19 +50,19 @@ class MountainController extends Controller
         $mount = mountain::where('id', $mountainId)->get();
 
         foreach ($mount as $mount) {
-            $data['name'] = $mount->name;
+            $data['name'] = $mount->mountain_name;
             $data['img'] = $mount->img;
             $count = $mount->days;
         }
 
         // // // looping for date
         $date_start = $date;
-        $date_end = date('Y-m-d', strtotime($date_start . " +{$count} days"));
+        $date_end = date('d-m-Y', strtotime($date_start . " +{$count} days"));
         $date_ = array();
 
         while ($date_start < $date_end) {
 
-            $date_start = date('Y-m-d', strtotime('+1 days', strtotime($date_start)));
+            $date_start = date('d-m-Y', strtotime('+1 days', strtotime($date_start)));
             $date_[] = $date_start;
         }
         // // // endlooping
@@ -92,13 +92,13 @@ class MountainController extends Controller
         $selectMountain = mountain::where('id', $id)->get();
 
         // // // looping for date
-        $date_start = date('Y-m-d', strtotime("+2days"));
-        $date_end = date('Y-m-d', strtotime("+11days"));
+        $date_start = date('d-m-Y', strtotime("+2days"));
+        $date_end = date('d-m-Y', strtotime("+11days"));
         $date_ = array();
 
         while ($date_start <= $date_end) {
 
-            $date_start = date('Y-m-d', strtotime('+1 days', strtotime($date_start)));
+            $date_start = date('d-m-Y', strtotime('+1 days', strtotime($date_start)));
             $date_[] = $date_start;
         }
         // // // endlooping

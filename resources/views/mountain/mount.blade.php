@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-          <h3>{{ $mount->name }}</h3>
+          <h3>{{ $mount->mountain_name }}</h3>
          <h2 style="margin-top: 20px">Height {{ $mount->height }} MDPL</h2>
           {{-- <ul>
             <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>

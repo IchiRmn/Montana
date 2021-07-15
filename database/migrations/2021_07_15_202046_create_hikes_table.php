@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMountainsTable extends Migration
+class CreateHikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateMountainsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mountains', function (Blueprint $table) {
+        Schema::create('hikes', function (Blueprint $table) {
             $table->id();
-            $table->string('mountain_name');
-            $table->integer('height');
-            $table->string('img');
-            $table->text('description');
-            $table->integer('days');
-            $table->integer('quota');
-            $table->integer('max');
+            $table->string('mountains_id');
+            $table->string('date_start');
+            $table->string('date_end');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ class CreateMountainsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mountains');
+        Schema::dropIfExists('hikes');
     }
 }

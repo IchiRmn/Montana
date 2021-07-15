@@ -11,13 +11,13 @@
       </div>
       <div class="modal-body">
         <div class="input-group mb-3">
+          @foreach ($selectMountain as $mount)
           <label class="input-group-text" for="inputGroupSelect01">Choose</label>
           <select class="form-select btn-light" id="inputGroupSelect01" name="member">
-            @for ($i = 1; $i <= 10 ; $i++)     
+            @for ($i = 1; $i <= $mount->max ; $i++)     
             <option value={{ $i }}>{{ $i }}</option>
             @endfor
           </select>
-          @foreach ($selectMountain as $mount)
               
           <input type="text" name="mountainId" id="mountainId" value={{ $mount->id }} hidden>
           @endforeach
@@ -30,8 +30,7 @@
     </div>
   </div>
 </div>
-
-
+  
 </form>
 <script type="text/javascript">
   $('#my_modal').on('show.bs.modal', function(e) {

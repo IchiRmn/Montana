@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class MemberSeeder extends Seeder
 {
@@ -13,6 +14,23 @@ class MemberSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('members')->insert([
+            'regists_id' => 'P10001',
+            'identity' => '555566666',
+            'email' => 'riri@gmail.com',
+            'phone' => '085522561546',
+            'member_name' => 'Riri',
+            'birthdate' => '08-05-2001',
+            'gender' => 'Female',
+        ]);
+        DB::table('members')->insert([
+            'regists_id' => 'P10001',
+            'identity' => '66666555555',
+            'email' => 'ruru@gmail.com',
+            'phone' => '088899946',
+            'member_name' => 'Ruru',
+            'birthdate' => '12-11-2000',
+            'gender' => 'Female',
+        ]);
     }
 }
