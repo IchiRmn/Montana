@@ -15,13 +15,14 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->string('regists_id');
-            $table->string('identity');
-            $table->string('email');
-            $table->string('phone');
+            $table->string('regists_id')->default("P10001");
+            $table->string('identity')->default("P10001");
+            $table->string('member_email')->default("00-00-00");
+            $table->string('phone')->default("P10001");
             $table->string('member_name');
-            $table->string('birthdate');
-            $table->string('gender');
+            $table->string('birthdate')->default("00-00-00");
+            $table->string('gender')->default("00-00-00");
+            $table->string('address')->default("00-00-00");
             $table->timestamps();
         });
     }

@@ -50,6 +50,7 @@ class MountainController extends Controller
         $mount = mountain::where('id', $mountainId)->get();
 
         foreach ($mount as $mount) {
+            $data['id'] = $mount->id;
             $data['name'] = $mount->mountain_name;
             $data['img'] = $mount->img;
             $count = $mount->days;

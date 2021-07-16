@@ -1,1 +1,1 @@
-{{ berhasil! }}
+{{ "berhasil" }}

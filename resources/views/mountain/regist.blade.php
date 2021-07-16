@@ -16,6 +16,8 @@
 
 <main id="main">
 
+<form action="/inputRegist" method="POST" data-aos-delay="100" class="needs-validation" novalidate>
+  @csrf
   <!-- ======= Registration Section ======= -->
   <section id="specials" class="specials">
     <div class="container" data-aos="fade-up">
@@ -70,9 +72,9 @@
                   <input type="text" class="form-control" placeholder="{{ $date }}" aria-label="Disabled input example" disabled readonly>
                 </div>
                 <div class="col">
-                  <select class="form-select" aria-label="Default select example">
+                  <select class="form-select" aria-label="Default select example" name="dateEnd" id="dateEnd">
                     @foreach ($date_ as $date_)
-                      <option value="3">{{ $date_ }}</option>
+                      <option value={{ $date_ }}>{{ $date_ }}</option>
                     @endforeach
                   </select>   
                 </div>

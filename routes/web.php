@@ -37,6 +37,7 @@ Route::get('/regist', function () {
     return redirect('/list');
 });
 
+Route::post('/inputRegist', [RegistController::class, 'input']);
 
 Route::get('/cobain', [RegistController::class, 'index']);
 

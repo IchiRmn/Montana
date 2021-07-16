@@ -8,10 +8,10 @@
         </div>
         <div class="modal-body">
             Are you sure?
-        </div>    
+         
         <input hidden type="text" name="date" value=""/>
         <div class="modal-footer" style="border-color: rgb(49, 49, 49)">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
           <button type="submit" class="btn btn-success">Go!</button>
         </div>
       </div>
