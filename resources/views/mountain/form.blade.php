@@ -5,7 +5,7 @@
       <div class="section-title">
         <p>Form Member</p>
       </div>  
-         @for ($i = 1; $i <= 2; $i++)
+         @for ($i = 1; $i <= $member ; $i++)
         <div data-aos="fade-up">
             
             <div class="section-title" style="padding-bottom: 20px;">
@@ -73,8 +73,9 @@
                     </div>
                 </div>
                 
-                <input type="text" name="idMount" value={{ $id }} hidden>
-                <input type="text" name="dateStart" value={{ $date }} hidden>
+                <input type="text" name="idMount" id="idMount" value={{ $id }} hidden>
+                <input type="text" name="dateStart" id="dateStart" value={{ $date }} hidden>
+                <input type="text" name="member" id="member" value={{ $member }} hidden>
                 
             </div> 
              

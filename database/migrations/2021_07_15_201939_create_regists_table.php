@@ -14,7 +14,8 @@ class CreateRegistsTable extends Migration
     public function up()
     {
         Schema::create('regists', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->id();
+            $table->string('registId');
             $table->string('users_id');
             $table->string('hikes_id');
             $table->timestamps();

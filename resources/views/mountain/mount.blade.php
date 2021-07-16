@@ -62,12 +62,22 @@
         @foreach ($dates as $index => $value)
         <div class="col-lg-2 mb-5" style="margin-right: 15px; margin-left:15px;">
           <div class="box" data-aos="zoom-in" data-aos-delay="100">            
-            <h4><b>{{ $dates[$index] }}</b></h4>
-            <h2>avalible</h2>
-            <h3>{{ $qta[$index] }}</h3>
-            <div class="btun">
-              <a href="#my_modal" data-bs-toggle="modal" data-book-id="{{ $dates[$index] }}">Book</a>
+           @if ($qta[$index]=== 0)
+           <h4><b>{{ $dates[$index] }}</b></h4>
+           <h2>unavalible</h2>
+           <h3 class="text-danger">{{ $qta[$index] }}</h3>
+           <div class="btun">
+            <a class="bg-secondary">Full</a>
+           </div>
+           @else
+           <h4><b>{{ $dates[$index] }}</b></h4>
+           <h2>avalible</h2>
+           <h3>{{ $qta[$index] }}</h3>
+           <div class="btun">
+             <a href="#my_modal" data-bs-toggle="modal" data-book-id="{{ $dates[$index] }}">Book</a>
             </div>
+            @endif
+
           </div>
         </div>
         @endforeach

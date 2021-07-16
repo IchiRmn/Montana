@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Regist;
 use App\Models\Member;
+use App\Models\Mountain;
+use App\Models\Quota;
+use App\Models\Hike;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
@@ -36,78 +40,76 @@ class RegistController extends Controller
         $regist_model = new Regist();
         $regist_model->Code($request);
 
+        $userId = Auth::id();
+        $hikes_id = Hike::Code();
 
+        $idMounts = $request->idMount;
+        $date_start = $request->dateStart;
+        $date_end = $request->dateEnd;
+        $member = $request->member;
+        
         $name = $request->name;
         $email = $request->email;
 
+        //Insert Regist Table
+        Regist::create([
+            'registId' => $kode,
+            'users_id' => $userId,
+            'hikes_id' => $hikes_id,
+        ]);
+        //End
+
+        //Insert Hikes Table
+        Hike::create([
+            'mountains_id' => $idMounts,
+            'date_start' => $date_start,
+            'date_end' => $date_end,
+        ]);  
+        //End
+
+        // Looping Insert Member
         for ($i = 0; $i < count($name); $i++) {
 
             member::create([
-                'regists_id' => $kode,
+                'regists_id' => 'P10002',
                 'identity' => '05151524',
-                'member_email' => $email[$i],
+                'member_email' => '@gmail.com',
                 'phone' => 'kerangfsaad',
-                'member_name' => $name[$i],
+                'member_name' => 'nama',
                 'birthdate' => '203262033',
                 'gender' => 'male',
                 'address' => 'kota jember',
             ]);
         }
+        // End Looping
 
-        $idMounts = $request->idMount;
-        $date_start = $request->dateStart;
-        $date_end = $request->dateEnd;
+        //Insert Hike Table
 
-        echo $date_start;
+        //End
 
-        // $quota0 = quota::where('quota_date', $date_[$i])->where('mount_id', $id);
-        // if ($quota0->exists()) {
-        //     foreach ($quota0->get() as $quota) {
-        //         $qta[] = $quota->quota;
-        //     }
-        // } else {
-        //     foreach ($mounts->get() as $mount) {
-        //         $qta[] = $mount->quota;
-        //     }
-        //     // $qta[] = 300;
-        // }
+        //Update Quuta
+        $quota = mountain::where('id', $idMounts)->get();
+        $quota0 = quota::where('quota_date', $date_start)->where('mount_id', $idMounts);
 
-        // $data = [
+        if ($quota0->exists()) {
+            foreach ($quota0->get() as $quota0) {
 
-        // ];
+                $new_quota = $quota0->quota - $member;
+            }
+            quota::where('quota_date', $date_start)->update(['quota' => $new_quota]);
+        } else {
 
-        // $new = [
-        //     'regist_id' => "P10003",
-        //     'identity' => $request->input('identityNumber'),
-        //     'member_email' => $request->input('email'),
-        //     'phone' => $request->input('phone'),
-        //     'member_name' => $request->input('name'),
-        //     'birthdate' => $request->input('birtdate'),
-        //     'gender' => $request->input('gender'),   
-        //     'address' => $request->input('address'),
-        // ];
+            foreach ($quota as $quota) {
 
-        // $names = '';
-        // $emails = '';
-
-
-        // member::insert(array $names);
-        // $baru = array();
-        // // $new = $request->all();
-
-
-        // foreach ($new as $nama) {
-        //     $baru[] = $nama;
-        // }
-        // $new = array();
-        // for ($i = 0; $i < 2; $i++) {
-        //     $new[] = $no;
-
-        // $admin_model = new AdminLoginModel();
-
-
-
-        echo $kode;
+                $new_quota1 = $quota->quota - $member;
+            }
+            quota::create([
+                'mount_id' => $idMounts,
+                'quota' => $new_quota1,
+                'quota_date' => $date_start,
+            ]);
+        }
+        //Update Quota
 
         return view('mountain.draft');
     }

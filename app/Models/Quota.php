@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quota extends Model
 {
-    // use HasFactory;
+    protected $fillable = ['mount_id', 'quota', 'quota_date'];
 }

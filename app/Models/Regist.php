@@ -8,14 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class Regist extends Model
 {
-    protected $fillable = [
-        'regists_id'
-
-    ];
+    protected $fillable = ['registId', 'users_id', 'hikes_id'];
+    
     public static function regist()
     {
         $regists = DB::table('regists')
-            ->join('members', 'regists.id', '=', 'members.regists_id')
+            ->join('members', 'regists.registId', '=', 'members.regists_id')
             ->join('hikes', 'regists.hikes_id', '=', 'hikes.id')
             ->join('mountains', 'mountains.id', '=', 'hikes.mountains_id')
             ->select('*')
@@ -25,23 +23,22 @@ class Regist extends Model
 
     public static function Code($request)
     {
-        $kode = DB::table('regists')->max('id');
-        $addNol = '';
-        $addId = '';
-        $kode = str_replace("PGJ", "", $kode);
-        $kode = (int) $kode + 1;
-        $incrementKode = $kode;
+        $code = DB::table('regists')->max('id');
+        $addZero = '';
+        $code = str_replace("PGJ", "", $code);
+        $code = (int) $code + 1;
+        $incrementKode = $code;
 
-        if (strlen($kode) == 1) {
-            $addNol = "000";
-        } elseif (strlen($kode) == 2) {
-            $addNol = "00";
-        } elseif (strlen($kode == 3)) {
-            $addNol = "0";
+        if (strlen($code) == 1) {
+            $addZero = "000";
+        } elseif (strlen($code) == 2) {
+            $addZero = "00";
+        } elseif (strlen($code == 3)) {
+            $addZero = "0";
         }
         $idMounts = $request->input('idMount');
 
-        $kodeBaru = "P" . $idMounts . $addNol . $incrementKode;
-        return $kodeBaru;
+        $newCode = "P" . $idMounts . $addZero . $incrementKode;
+        return $newCode;
     }
 }

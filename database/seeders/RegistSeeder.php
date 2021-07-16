@@ -15,7 +15,7 @@ class RegistSeeder extends Seeder
     public function run()
     {
         DB::table('regists')->insert([
-            'id' => 'P10001',
+            'registId' => 'P10001',
             'users_id' => '2',
             'hikes_id' => '1',
         ]);

@@ -13,7 +13,7 @@
         <div class="input-group mb-3">
           @foreach ($selectMountain as $mount)
           <label class="input-group-text" for="inputGroupSelect01">Choose</label>
-          <select class="form-select btn-light" id="inputGroupSelect01" name="member">
+          <select class="form-select btn-light" id="member" name="member">
             @for ($i = 1; $i <= $mount->max ; $i++)     
             <option value={{ $i }}>{{ $i }}</option>
             @endfor

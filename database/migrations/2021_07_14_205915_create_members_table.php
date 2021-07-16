@@ -19,7 +19,7 @@ class CreateMembersTable extends Migration
             $table->string('identity')->default("P10001");
             $table->string('member_email')->default("00-00-00");
             $table->string('phone')->default("P10001");
-            $table->string('member_name');
+            $table->string('member_name')->default("P10001");
             $table->string('birthdate')->default("00-00-00");
             $table->string('gender')->default("00-00-00");
             $table->string('address')->default("00-00-00");
