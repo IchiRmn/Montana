@@ -53,10 +53,16 @@
                 <div class="col">
                   <p style="font-size: 15px">Destination</p>
                 </div>
+                <div class="col">
+                  <p style="font-size: 15px">Members</p>
+                </div>
               </div>
               <div class="row">
                 <div class="col">
                   <h5>{{ $name }}, mountain</h5>
+                </div>
+                <div class="col">
+                  <h5>{{ $member }} People</h5>
                 </div>
               </div>
               <div class="row pt-2">

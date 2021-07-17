@@ -1459,6 +1459,8 @@ section {
     /* background: #343a40; */
     position: relative;
     overflow: hidden;
+    width: 10cm;
+    height: 7cm;
 }
 
 .chefs .member .member-info {

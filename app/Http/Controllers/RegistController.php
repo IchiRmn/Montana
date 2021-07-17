@@ -9,6 +9,7 @@ use App\Models\Mountain;
 use App\Models\Quota;
 use App\Models\Hike;
 use Illuminate\Support\Facades\Auth;
+use Validator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
@@ -26,7 +27,7 @@ class RegistController extends Controller
 
     public function input(Request $request)
     {
-        // $this->validate($request, [
+        // $request->validate([
         //     'identityNumber'     => 'required|string',
         //     'email' => 'required|string|email',
         //     'phone' => 'required|string',

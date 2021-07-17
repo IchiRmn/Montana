@@ -39,9 +39,12 @@ Route::get('/regist', function () {
 
 Route::post('/inputRegist', [RegistController::class, 'input']);
 
-Route::get('/cobain', [RegistController::class, 'index']);
-
-
+Route::get(
+    '/cobain',
+    function () {
+        return view('mountain.draft');
+    }
+);
 // Route::get('login1', function () {
 //     return view('auth.login');
 // });

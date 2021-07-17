@@ -32,13 +32,35 @@
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
           <h3>{{ $mount->mountain_name }}</h3>
-         <h2 style="margin-top: 20px">Height {{ $mount->height }} MDPL</h2>
-          {{-- <ul>
-            <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-            <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-          </ul> --}}
-          <p style="margin-top: 20px; text-align: justify; text-indent: 0.5in">
+          <div class="row fs-6">
+            <div class="col">
+              <ul>
+                <h2 style="margin-top: 20px"><i class="bi bi-chevron-double-up"></i>Height</h2>
+                <li> {{ $mount->height }} MDPL</li>
+              </ul> 
+           </div>
+           <div class="col">
+            <ul>
+              <h2 style="margin-top: 20px"><i class="bi bi-calendar-plus"></i>Quota/days</h2>
+              <li> {{ $mount->quota }} People</li>
+             </ul> 
+          </div>
+        <div class="row">
+          <div class="col">
+            <ul>
+              <h2 style="margin-top: 20px"><i class="bi bi-house-door-fill"></i>Limit Stay</h2>
+              <li> {{ $mount->days }} Days</li>
+            </ul> 
+         </div>
+         <div class="col">
+          <ul>
+            <h2 style="margin-top: 20px"><i class="bi bi-people-fill"></i></i>Maximum Member/Team</h2>
+            <li> {{ $mount->max }} Members</li>
+           </ul> 
+        </div>
+        </div>
+         </div>
+          <p style="margin-top: 15px; margin-right:40px; text-align: justify; text-indent: 0.5in;">
             {{ $mount->description }}
         </div>
         @endforeach

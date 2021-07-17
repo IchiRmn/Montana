@@ -7,7 +7,7 @@
 @section('section')
 
 @include('layouts.top')
-    <!-- ======= Chefs Section ======= -->
+    <!-- ======= List Section ======= -->
 <main id="main">
   
     <section id="chefs" class="chefs">
@@ -22,7 +22,7 @@
           @foreach ($mount as $mount)
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="zoom-in" data-aos-delay="200">
-              <img src="{{ asset('img/Mountain/'.$mount->img) }}" class="img-fluid" alt="">
+              <img src="{{ asset('img/Mountain/'.$mount->img) }}" class="img-fluid" alt="" >
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>{{ $mount->mountain_name }}</h4>
@@ -41,7 +41,7 @@
         </div>
 
       </div>
-    </section><!-- End Chefs Section -->
+    </section><!-- End List Section -->
     
 </main><!-- End #main -->
 
