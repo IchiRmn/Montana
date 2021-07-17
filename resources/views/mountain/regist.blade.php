@@ -85,6 +85,20 @@
                   </select>   
                 </div>
               </div>
+              <div class="row pt-4">
+                <div class="col">
+                  <p style="font-size: 15px">Payment</p>
+                </div>
+              </div>
+              <div class="row pt-2">
+                <div class="col-sm-3">
+                  <select class="form-select" aria-label="Default select example" name="payment" id="payment">
+                    <option value="PayPal">PayPal</option>
+                    <option value="BCA">BCA</option>
+                    <option value="Mandiri">Mandiri</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
         </div>

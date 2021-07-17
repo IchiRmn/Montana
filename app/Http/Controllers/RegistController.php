@@ -9,6 +9,7 @@ use App\Models\Mountain;
 use App\Models\Quota;
 use App\Models\Hike;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 use Validator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -51,12 +52,14 @@ class RegistController extends Controller
         
         $name = $request->name;
         $email = $request->email;
+        $payment = $request->payment;
 
         //Insert Regist Table
         Regist::create([
             'registId' => $kode,
             'users_id' => $userId,
             'hikes_id' => $hikes_id,
+            'payment' => $payment,
         ]);
         //End
 
@@ -65,9 +68,10 @@ class RegistController extends Controller
             'mountains_id' => $idMounts,
             'date_start' => $date_start,
             'date_end' => $date_end,
-        ]);  
+        ]);
         //End
-
+        $names = [];
+        $emails = [];
         // Looping Insert Member
         for ($i = 0; $i < count($name); $i++) {
 
@@ -81,10 +85,18 @@ class RegistController extends Controller
                 'gender' => 'male',
                 'address' => 'kota jember',
             ]);
+
+            $names[] = $name[$i];
+            $emails[] = $email[$i];
         }
         // End Looping
 
         //Insert Hike Table
+
+        $data = [
+            'name' => $names,
+            'email' => $emails,
+        ];
 
         //End
 
@@ -112,6 +124,13 @@ class RegistController extends Controller
         }
         //Update Quota
 
-        return view('mountain.draft');
+        return view('mountain.draft', $data);
+    }
+
+    public function print_pdf()
+    {
+
+        $pdf = PDF::loadview('output.registration');
+        return $pdf->stream();
     }
 }

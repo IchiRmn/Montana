@@ -18,6 +18,7 @@ class RegistSeeder extends Seeder
             'registId' => 'P10001',
             'users_id' => '2',
             'hikes_id' => '1',
+            'payment' => 'BCA',
         ]);
     }
 }

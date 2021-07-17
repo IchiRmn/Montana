@@ -33,11 +33,14 @@ Route::get('/admin', [AdminController::class, 'index'])->middleware('role:1');
 Route::get('/list', [MountainController::class, 'index']);
 Route::get('/mount/{id}', [MountainController::class, 'show']);
 Route::post('/regist', [MountainController::class, 'regist'])->middleware('auth');
+Route::post('/inputRegist', [RegistController::class, 'input']);
+Route::get('/print-pdf', [RegistController::class, 'print_pdf']);
+
+
 Route::get('/regist', function () {
     return redirect('/list');
 });
 
-Route::post('/inputRegist', [RegistController::class, 'input']);
 
 Route::get(
     '/cobain',

@@ -2,13 +2,13 @@
 <section id="book-a-table" class="book-a-table">
     <div class="container" >
 
-      <div class="section-title">
+      <div class="section-title"  data-aos="fade-up">
         <p>Form Member</p>
       </div>  
          @for ($i = 1; $i <= $member ; $i++)
         <div data-aos="fade-up">
             
-            <div class="section-title" style="padding-bottom: 20px;">
+            <div class="section-title"  style="padding-bottom: 20px; padding-top: 50px;">
             <h2>Member {{ $i }}</h2>
             </div>
 
@@ -73,7 +73,7 @@
                     </div>
                 </div> 
 
-                <div class="mt-3 form-floating col-sm-6" style="margin-bottom: 100px;">
+                <div class="mt-3 form-floating col-sm-6" style="margin-bottom: 50px;">
                     <textarea name="address[]" id="address" value="{{ old('name') }}" autocomplete="address" placeholder=" " class="form-control btn-light @error('address') is-invalid @enderror" style="height: 100px; background-color: #0c0b09; color: white"></textarea>
                     <label for="addres" style="margin-left: 10px; color: rgb(182, 182, 182)">Address</label>
                     @error('address')
@@ -92,7 +92,9 @@
             
         </div>
         @endfor
-        <div class="d-grid gap-2 col-6 mx-auto">
+
+        
+        <div class="d-grid gap-2 col-6 mx-auto mt-7" style="margin-top: 60px">
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#confirm">
                 Register
             </button>

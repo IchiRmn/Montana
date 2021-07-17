@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class Regist extends Model
 {
-    protected $fillable = ['registId', 'users_id', 'hikes_id'];
+    protected $fillable = ['registId', 'users_id', 'hikes_id', 'payment'];
     
     public static function regist()
     {
