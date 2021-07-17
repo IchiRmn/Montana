@@ -20,7 +20,7 @@
         </tr>
         <tr>
             <td style="font-size: 9pt;">Destination</td>
-            <td style="font-size: 9pt;">: Semeru</td>
+            <td style="font-size: 9pt;">: Mt. Semeru</td>
             <td style="font-size: 9pt;">Name</td>
             <td style="font-size: 9pt;">: User</td>
         <tr>

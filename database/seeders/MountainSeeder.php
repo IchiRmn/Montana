@@ -18,9 +18,9 @@ class MountainSeeder extends Seeder
             'mountain_name' => 'Kerinci',
             'height' => '3805',
             'img' => 'kerinci.jpg',
-            'description' => 'Menjadi gunung tertinggi di pulau Sumatera, Gunung Kerinci layak dinobatkan sebagai salah satu Seven Summit Indonesia. Gunung Kerinci memiliki ketinggian 3.805 mdpl.
-            Lokasi Gunung Kerinci berada di perbatasan antara Sumatera Barat dan Jambi. Gunung Kerinci terletak di Taman Nasional Kerinci Seblat yang juga menjadi taman nasional terbesar di Indonesia.
-            Salah satu Seven Summit Indonesia ini telah ditetapkan sebagai World Heritage Site dengan kategori Tropical Rainforest Heritage of Sumatra. Selain itu, Gunung Kerinci juga menyandang status sebagai gunung berapi tertinggi di Asia Tenggara.',
+            'description' => 'Being the highest mountain on the island of Sumatra, Mount Kerinci deserves to be named as one of the Seven Summits of Indonesia. Mount Kerinci has a height of 3,805 masl.
+            The location of Mount Kerinci is on the border between West Sumatra and Jambi. Mount Kerinci is located in the Kerinci Seblat National Park which is also the largest national park in Indonesia.
+            One of the Seven Summits of Indonesia has been designated as a World Heritage Site in the category of Tropical Rainforest Heritage of Sumatra. In addition, Mount Kerinci also holds the status as the highest volcano in Southeast Asia.',
             'days' => '3',
             'quota' => '300',
             'max' => '10',
@@ -29,9 +29,9 @@ class MountainSeeder extends Seeder
             'mountain_name' => 'Semeru',
             'height' => '3676',
             'img' => 'semeru.jpg',
-            'description' => 'Terletak di perbatasan Kabupaten Malang dan Lumajang, Gunung Semeru masuk dalam jajaran puncak tertinggi di Indonesia. Gunung Semeru memiliki ketinggian 3.676 mdpl.
-            Gunung Semeru merupakan salah satu gunung aktif di Indonesia, sehingga kurang lebih 20 menit sekali kawahnya mengeluarkan abu vulkanik. Seven Summit Indonesia ini berada di bawah pengawasan administrasi Taman Nasional Bromo Tengger Semeru.
-            Daya tarik utama Gunung Semeru adalah karakteristik medannya yang bervariasi. Kita dapat menemukan lanskap padang sabana, hutan cemara, danau gunung, hingga hutan montana dalam perjalanan menuju puncak Gunung Semeru.',
+            'description' => 'Located on the border of Malang and Lumajang regencies, Mount Semeru is one of the highest peaks in Indonesia. Mount Semeru has a height of 3,676 meters above sea level.
+            Mount Semeru is one of the active volcanoes in Indonesia, so that every 20 minutes the crater emits volcanic ash. Seven Summit Indonesia is under the supervision of the administration of Bromo Tengger Semeru National Park.
+            The main attraction of Mount Semeru is its varied terrain characteristics. We can find savanna landscapes, cypress forests, mountain lakes, to montana forests on the way to the top of Mount Semeru.',
             'days' => '3',
             'quota' => '300',
             'max' => '8',
@@ -40,9 +40,8 @@ class MountainSeeder extends Seeder
             'mountain_name' => 'Rinjani',
             'height' => '3726',
             'img' => 'rinjani.jpg',
-            'description' => 'Masuk dalam salah satu Seven Summit Indonesia, Gunung Rinjani merupakan gunung tertinggi di gugusan kepulauan Sunda Kecil. Gunung Rinjani memiliki ketinggian 3.726 mdpl.
-            Gunung Rinjani menjadi gunung berapi aktif kedua tertinggi di Indonesia. Salah satu puncak tertinggi di Indonesia ini berada di Pulau Lombok, Nusa Tenggara Barat. Salah satu daya tarik Gunung Rinjani adalah danau kaldera yang berada di puncaknya.
-            Untuk mencapai puncak tertinggi di Indonesia ini kita bisa melewati dua jalur pendakian, yakni dari Sembalun dan Senaru.',
+            'description' => 'Included in one of the Seven Summits of Indonesia, Mount Rinjani is the highest mountain in the Lesser Sunda archipelago. Mount Rinjani has a height of 3,726 meters above sea level.
+            Mount Rinjani is the second highest active volcano in Indonesia. One of the highest peaks in Indonesia is located on the island of Lombok, West Nusa Tenggara. One of the attractions of Mount Rinjani is the caldera lake at its peak.',
             'days' => '2',
             'quota' => '250',
             'max' => '10',
@@ -51,8 +50,8 @@ class MountainSeeder extends Seeder
             'mountain_name' => 'Bukit Raya',
             'height' => '2278',
             'img' => 'bukit-raya.jpg',
-            'description' => 'Pulau Kalimantan juga menjadi salah satu lokasi sport tourism yang masuk dalam Seven Summit Indonesia. Gunung Bukit Raya memiliki ketinggian 2.278 mdpl dan masuk dalam jajaran puncak tertinggi di Indonesia.
-            Gunung Bukit Raya berada di perbatasan Kalimantan Barat dan Kalimantan Tengah. Secara administratif puncak tertinggi di Indonesia ini berada di bawah pengawasan Taman Nasional Bukit Baka-Bukit Raya. Gunung Bukit Raya bukan termasuk dalam gunung berapi.',
+            'description' => 'Kalimantan Island is also one of the sports tourism locations included in the Seven Summit Indonesia. Mount Bukit Raya has a height of 2,278 meters above sea level and is included in the ranks of the highest peaks in Indonesia.
+            Mount Bukit Raya is located on the border of West Kalimantan and Central Kalimantan. Administratively, the highest peak in Indonesia is under the supervision of the Bukit Baka-Bukit Raya National Park. Mount Bukit Raya is not a volcano.',
             'days' => '3',
             'quota' => '300',
             'max' => '5',
@@ -61,8 +60,8 @@ class MountainSeeder extends Seeder
             'mountain_name' => 'Latimojong',
             'height' => '3430',
             'img' => 'latimojong.jpg',
-            'description' => 'Seven Summit Indonesia juga terdapat di Pulau Sulawesi, tepatnya di Gunung Latimojong yang memiliki ketinggian 3.430 mdpl. Puncak tertinggi Gunung Latimojong berada di puncak Rantemario.
-            Salah satu daya tarik dari Gunung Latimojong adalah ragam jenis satwa yang menghuni lokasi ini. Jika beruntung, kita dapat menjumpai anoa dan babi rusa selama pendakian. Jalur pendakian yang umum dipakai untuk mencapai puncak Rantemario adalah jalur Kecamatan Baraka.',
+            'description' => 'Seven Summit Indonesia is also located on the island of Sulawesi, precisely on Mount Latimojong which has an altitude of 3,430 meters above sea level. The highest peak of Mount Latimojong is at the top of Rantemario.
+            One of the attractions of Mount Latimojong is the variety of animal species that inhabit this location. If lucky, we can meet anoa and deer pigs during the hike. The climbing route that is commonly used to reach the top of Rantemario is the Baraka District route.',
             'days' => '2',
             'quota' => '200',
             'max' => '8',
@@ -71,8 +70,8 @@ class MountainSeeder extends Seeder
             'mountain_name' => 'Binaiya',
             'height' => '3027',
             'img' => 'binaiya.jpg',
-            'description' => 'Gunung Binaiya merupakan salah satu puncak tertinggi di Indonesia yang terletak di Kepulauan Maluku. Puncak Binaiya memiliki ketinggian 3.027 mdpl dan berada di pulau Seram, Maluku.
-            Gunung Binaiya termasuk dalam pegunungan karst dan tidak aktif. Keunikan dari gunung ini adalah medannya yang bervariasi. Gunung Binaiya memiliki hutan dengan ekosistem pantai, hutan rawa, hutan hujan dataran rendah, hutan hujan pegunungan, hingga hutan subalpin.',
+            'description' => 'Mount Binaiya is one of the highest peaks in Indonesia, located in the Maluku Islands. The peak of Binaiya has an altitude of 3,027 meters above sea level and is located on the island of Seram, Maluku.
+            Mount Binaiya belongs to the karst mountains and is not active. The uniqueness of this mountain is its varied terrain. Mount Binaiya has forests with coastal ecosystems, swamp forests, lowland rain forests, mountain rain forests, to subalpine forests.',
             'days' => '2',
             'quota' => '200',
             'max' => '10',

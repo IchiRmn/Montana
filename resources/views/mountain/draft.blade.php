@@ -14,7 +14,7 @@
             <div class="col-lg-20 mt-4 mt-lg-0">
               <div class="row">
                 <div class="col">
-                    <h1>Semeru, mountain</h1>
+                    <h1>Mt. Semeru</h1>
                     <div class="section-title" style="margin-bottom: 0; padding-bottom:4px; padding-top: 12px">
                         <h2>Registrant</h2>
                     </div>

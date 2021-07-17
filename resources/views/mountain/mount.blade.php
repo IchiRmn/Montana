@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-          <h3>{{ $mount->mountain_name }}</h3>
+          <h3>Mt. {{ $mount->mountain_name }}</h3>
           <div class="row fs-6">
             <div class="col">
               <ul>

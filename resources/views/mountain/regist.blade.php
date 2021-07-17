@@ -59,7 +59,7 @@
               </div>
               <div class="row">
                 <div class="col">
-                  <h5>{{ $name }}, mountain</h5>
+                  <h5>Mt. {{ $name }}</h5>
                 </div>
                 <div class="col">
                   <h5>{{ $member }} People</h5>
