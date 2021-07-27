@@ -73,7 +73,7 @@
                     <select name="gender[]" id="gender" autocomplete="gender" class="form-select btn-light" aria-label="Floating label select example" required>
                         <option value="">Choose</option>
                         <option value="Male">Male</option>
-                        <option value="Famale">Female</option>
+                        <option value="Female">Female</option>
                     </select>
                     <label for="gender" >Gender</label>
                     <div class="invalid-tooltip">

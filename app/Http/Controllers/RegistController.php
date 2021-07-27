@@ -89,16 +89,16 @@ class RegistController extends Controller
 
         // Looping Member Data
         for ($i = 0; $i < count($name); $i++) {
-            
+
             member::create([
-                'regists_id' => 'P10002',
-                'identity' => '05151524',
-                'member_email' => '@gmail.com',
-                'phone' => 'kerangfsaad',
-                'member_name' => 'nama',
-                'birthdate' => '203262033',
-                'gender' => 'male',
-                'address' => 'kota jember',
+                'regists_id' => $kode,
+                'identity' => $identity[$i],
+                'member_email' => $email[$i],
+                'phone' => $phone[$i],
+                'member_name' => $name[$i],
+                'birthdate' => $birth[$i],
+                'gender' =>  $gender[$i],
+                'address' => $address[$i],
             ]);
 
             $identitys[] = $identity[$i];

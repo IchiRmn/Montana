@@ -13,7 +13,7 @@ class Member extends Model
         'member_email',
         'phone',
         'member_name',
-        'birtdate',
+        'birthdate',
         'gender',
         'address',
     ];
