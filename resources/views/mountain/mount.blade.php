@@ -77,7 +77,7 @@
 
       <div class="section-title">
         <h2>Choose</h2>
-        <p>When you wanna to go</p>
+        <p>When will you go?</p>
       </div>
       <div class="row">
         

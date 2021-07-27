@@ -1892,3 +1892,37 @@ section {
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
+
+.regist input,
+.regist select {
+    height: 60px;
+    background-color: #0c0b09;
+    color: white;
+}
+
+.regist input:focus,
+.regist select:focus,
+.regist textarea:focus {
+
+    background-color: #0c0b09;
+    color: white;
+}
+
+.regist input:hover,
+.regist select:hover,
+.regist textarea:hover {
+
+    background-color: #0c0b09;
+    color: white;
+}
+
+.regist label {
+    margin-left: 10px;
+    font-size: 14px;
+    color: rgb(182, 182, 182);
+}
+
+.regist textarea {
+    background-color: #0c0b09;
+    color: white;
+}

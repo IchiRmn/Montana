@@ -24,13 +24,13 @@
             <td style="font-size: 9pt;">Name</td>
             <td style="font-size: 9pt;">: User</td>
         <tr>
-            <td style="font-size: 9pt;">Start</td>
+            <td style="font-size: 9pt;">Start From</td>
             <td style="font-size: 9pt;">: 20-07-2021</td>
             <td style="font-size: 9pt;">Email</td>
             <td style="font-size: 9pt;">: user@gmail.com</td>    
         </tr>
         <tr>
-            <td style="font-size: 9pt;">End</td>
+            <td style="font-size: 9pt;">Until</td>
             <td style="font-size: 9pt;">: 21-07-2021</td>
         </tr>
         <tr>

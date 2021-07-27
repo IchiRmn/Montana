@@ -28,16 +28,16 @@ class RegistController extends Controller
 
     public function input(Request $request)
     {
+      
         // $request->validate([
-        //     'identityNumber'     => 'required|string',
-        //     'email' => 'required|string|email',
-        //     'phone' => 'required|string',
-        //     'name' => 'required|string',
-        //     'birthdate' => 'required|string',
-        //     'gender' => 'required|string',
-        //     'address' => 'required|string|min:8'
+        //     'identityNumber[]' => 'required',
+        //     'email[]' => 'required|email',
+        //     'phone[]' => 'required',
+        //     'birthdate[]' => 'required',
+        //     'gender[]' => 'required',
+        //     'address[]' => 'required|min:5'
         // ]);
-
+        
         $kode = Regist::Code($request);
         $regist_model = new Regist();
         $regist_model->Code($request);
@@ -46,14 +46,22 @@ class RegistController extends Controller
         $hikes_id = Hike::Code();
 
         $idMounts = $request->idMount;
-        $date_start = $request->dateStart;
-        $date_end = $request->dateEnd;
         $member = $request->member;
+        $date_start = $request->dateStart;
         
-        $name = $request->name;
-        $email = $request->email;
+        $date_end = $request->dateEnd;
         $payment = $request->payment;
 
+        $mountain = Mountain::where('id', $idMounts)->get();
+
+        $identity = $request->identityNumber;
+        $name = $request->name;
+        $email = $request->email;
+        $phone = $request->phone;
+        $birth = $request->birthdate;
+        $gender = $request->gender;
+        $address = $request->address;
+        
         //Insert Regist Table
         Regist::create([
             'registId' => $kode,
@@ -70,11 +78,18 @@ class RegistController extends Controller
             'date_end' => $date_end,
         ]);
         //End
+
+        $identitys = [];
         $names = [];
         $emails = [];
-        // Looping Insert Member
-        for ($i = 0; $i < count($name); $i++) {
+        $phones = [];
+        $births = [];
+        $genders = [];
+        $addresses = [];
 
+        // Looping Member Data
+        for ($i = 0; $i < count($name); $i++) {
+            
             member::create([
                 'regists_id' => 'P10002',
                 'identity' => '05151524',
@@ -86,18 +101,32 @@ class RegistController extends Controller
                 'address' => 'kota jember',
             ]);
 
+            $identitys[] = $identity[$i];
             $names[] = $name[$i];
             $emails[] = $email[$i];
+            $phones[] = $phone[$i];
+            $births[] = $birth[$i];
+            $genders[] = $gender[$i];
+            $addresses[] = $address[$i];
         }
         // End Looping
 
-        //Insert Hike Table
-
+        //Show output temporary
         $data = [
+            'member' => $member,
+            'id_regist' => $kode,
+            'date_start' => $date_start,
+            'date_end' => $date_end,
+            'payment' => $payment,
+            //sub array
+            'identity' => $identitys,
             'name' => $names,
             'email' => $emails,
+            'phone' => $phones,
+            'birthdate' => $births,
+            'gender' => $genders,
+            'address' => $addresses,
         ];
-
         //End
 
         //Update Quuta
@@ -124,7 +153,7 @@ class RegistController extends Controller
         }
         //Update Quota
 
-        return view('mountain.draft', $data);
+        return view('mountain.draft', $data)->with('mount', $mountain);
     }
 
     public function print_pdf()

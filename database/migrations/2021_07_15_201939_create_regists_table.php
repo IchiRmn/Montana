@@ -19,7 +19,7 @@ class CreateRegistsTable extends Migration
             $table->string('users_id');
             $table->string('hikes_id');
             $table->string('payment');
-            $table->string('string')->default('Unpaid');
+            $table->string('status')->default('Unpaid');
             $table->timestamps();
         });
     }
