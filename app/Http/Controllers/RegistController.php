@@ -162,4 +162,11 @@ class RegistController extends Controller
         $pdf = PDF::loadview('output.registration');
         return $pdf->stream();
     }
+    public function test()
+    {
+        $test = 'P1';
+        $pp = Regist::select('registId')->where(DB::raw('LEFT(`registId`, 2)'), $test)->max(DB::raw('RIGHT(`registId`, 4)'));
+
+        return $pp + 1;
+    }
 }

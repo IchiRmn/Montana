@@ -23,7 +23,11 @@ class Regist extends Model
 
     public static function Code($request)
     {
-        $code = DB::table('regists')->max('id');
+        $idMounts = $request->input('idMount');
+
+        $trace = "P" . $idMounts;
+
+        $code = DB::table('regists')->select('registId')->where(DB::raw('LEFT(`registId`, 2)'), $trace)->max(DB::raw('RIGHT(`registId`, 4)'));
         $addZero = '';
         $code = str_replace("PGJ", "", $code);
         $code = (int) $code + 1;
@@ -36,7 +40,6 @@ class Regist extends Model
         } elseif (strlen($code == 3)) {
             $addZero = "0";
         }
-        $idMounts = $request->input('idMount');
 
         $newCode = "P" . $idMounts . $addZero . $incrementKode;
         return $newCode;

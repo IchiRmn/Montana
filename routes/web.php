@@ -48,6 +48,8 @@ Route::get(
         return view('mountain.draft');
     }
 );
+
+Route::get('/test', [RegistController::class, 'test']);
 // Route::get('login1', function () {
 //     return view('auth.login');
 // });
