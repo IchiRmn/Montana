@@ -156,17 +156,58 @@ class RegistController extends Controller
         return view('mountain.draft', $data)->with('mount', $mountain);
     }
 
-    public function print_pdf()
+    public function print_pdf($id)
     {
+        $regist = Regist::regist()->where('registId', $id);
 
-        $pdf = PDF::loadview('output.registration');
+        $identitys = [];
+        $names = [];
+        $emails = [];
+        $phones = [];
+        $births = [];
+        $genders = [];
+        $addresses = [];
+
+        foreach ($regist as $regist) {
+
+            $id_regist = $regist->registId;
+            $mount = $regist->mountain_name;
+            $date_start = $regist->date_start;
+            $date_end = $regist->date_end;
+            $status = $regist->status;
+            $payment = $regist->payment;
+
+            $identitys[] = $regist->identity;
+            $names[] = $regist->member_name;
+            $emails[] = $regist->member_email;
+            $phones[] = $regist->phone;
+            $births[] = $regist->birthdate;
+            $genders[] = $regist->gender;
+            $addresses[] = $regist->address;
+        }
+
+        $data = [
+            'id_regist' => $id_regist,
+            'mount' => $mount,
+            'date_start' => $date_start,
+            'date_end' => $date_end,
+            'status' => $status,
+            'payment' => $payment,
+            //sub array
+            'identity' => $identitys,
+            'name' => $names,
+            'email' => $emails,
+            'phone' => $phones,
+            'birthdate' => $births,
+            'gender' => $genders,
+            'address' => $addresses,
+        ];
+
+        $pdf = PDF::loadview('output.registration', $data);
         return $pdf->stream();
     }
-    public function test()
+    public function test($id)
     {
-        $test = 'P1';
-        $pp = Regist::select('registId')->where(DB::raw('LEFT(`registId`, 2)'), $test)->max(DB::raw('RIGHT(`registId`, 4)'));
-
-        return $pp + 1;
+        
     }
 }

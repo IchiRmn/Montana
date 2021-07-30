@@ -13,7 +13,7 @@
 		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"crossorigin="anonymous">
 	</script>
 </head>
-
+{{-- 
 <body>
     <a href="#my_modal" data-toggle="modal" data-book-id="my_id_value">Open Modal</a>
 
@@ -40,7 +40,19 @@ $('#my_modal').on('show.bs.modal', function(e) {
     var bookId = $(e.relatedTarget).data('book-id');
     $(e.currentTarget).find('input[name="bookId"]').val(bookId);
 });
-	</script>
+	</script> --}}
+  {{-- <div>{{ $member }}</div>
+  @foreach ($regist as $regist)
+
+      <div>{{ $regist->member_name; }}</div><br>
+  @endforeach --}}
+  <div>{{ $registId }}</div>
+@foreach ($member as $member)
+   <div>{{ $member }}</div> 
+@endforeach
+  {{-- @foreach ($regist as $regist)
+      {{ $regist->member_name; }}
+  @endforeach --}}
 </body>
 
 </html>

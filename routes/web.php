@@ -34,7 +34,7 @@ Route::get('/list', [MountainController::class, 'index']);
 Route::get('/mount/{id}', [MountainController::class, 'show']);
 Route::get('/regist', [MountainController::class, 'regist'])->middleware('auth');
 Route::post('/inputRegist', [RegistController::class, 'input']);
-Route::get('/print-pdf', [RegistController::class, 'print_pdf']);
+Route::get('/print-pdf/{id}', [RegistController::class, 'print_pdf']);
 
 
 // Route::get('/regist', function () {
@@ -49,7 +49,7 @@ Route::get(
     }
 );
 
-Route::get('/test', [RegistController::class, 'test']);
+Route::get('/test/{id}', [RegistController::class, 'test']);
 // Route::get('login1', function () {
 //     return view('auth.login');
 // });

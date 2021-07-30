@@ -8,8 +8,8 @@
 </head>
 <body>
 	<div class="container">
-		<h2 class="text-center" style="font-family: arial, sans-serif;">Registration Sheet</h2>
-        <h4 class="text-center">ID : P20001</h4>
+		<h2 class="text-center" style="font-family: sans-serif;">Registration Sheet</h2>
+        <h4 class="text-center">{{ $id_regist }}</h4>
 
     <table style="width: 100%; font-size: 12pt;">
         <tr>
@@ -20,108 +20,56 @@
         </tr>
         <tr>
             <td style="font-size: 9pt;">Destination</td>
-            <td style="font-size: 9pt;">: Mt. Semeru</td>
+            <td style="font-size: 9pt;">: {{ $mount }}</td>
             <td style="font-size: 9pt;">Name</td>
-            <td style="font-size: 9pt;">: User</td>
+            <td style="font-size: 9pt;">: {{ Auth::user()->name; }}</td>
         <tr>
             <td style="font-size: 9pt;">Start From</td>
-            <td style="font-size: 9pt;">: 20-07-2021</td>
+            <td style="font-size: 9pt;">: {{ $date_start }}</td>
             <td style="font-size: 9pt;">Email</td>
-            <td style="font-size: 9pt;">: user@gmail.com</td>    
+            <td style="font-size: 9pt;">: {{ Auth::user()->email }}</td>    
         </tr>
         <tr>
             <td style="font-size: 9pt;">Until</td>
-            <td style="font-size: 9pt;">: 21-07-2021</td>
+            <td style="font-size: 9pt;">: {{ $date_end }}</td>
         </tr>
         <tr>
             <th style="padding-top: 10px; font-size: 9pt;">Payment</th>
-            <td style="padding-top: 10px; font-size: 9pt;">: BCA</td>
+            <td style="padding-top: 10px; font-size: 9pt;">: {{ $payment }}</td>
             <th style="padding-top: 10px; font-size: 9pt;">Status</th>
-            <td style="padding-top: 10px; font-size: 9pt;">: Unpaid</td>
+            <td style="padding-top: 10px; font-size: 9pt;">: {{ $status }}</td>
         </tr>
     </table>
     <h3 style="margin-top: 20px">Members</h3>
+    @foreach ($identity as $index => $value)      
     <table class="table table-bordered" style="width: 100%; border-width: 1pt; border-color: black; margin-top: 20px;">
         <tr>
-            <th colspan="4" class="text-center">Member 1</th>
+            <th colspan="4" class="text-center">Member {{ $loop->iteration }}</th>
         </tr>
         <tr>
             <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Identiy Number</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">32105428816329 </td>
+            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">{{ $identity[$index] }} </td>
             <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Name</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">Riri</td>
+            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">{{ $name[$index] }}</td>
         </tr>
         <tr>
             <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Email</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">riri@gmail.com</td>
+            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">{{ $email[$index] }}</td>
             <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Birthdate</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">20-12-2000</td>
+            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">{{ $birthdate[$index] }}</td>
         </tr>
         <tr>
             <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Phone Number</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">085461523021</td>
+            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">{{ $phone[$index] }}</td>
             <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Gender</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">Female</td>
+            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">{{ $gender[$index] }}</td>
         </tr>
         <tr>
             <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Address</th>
-            <td colspan="3" style="font-size: 9pt; border-width: 1pt; border-color: black;">Kota Bogor</td>
+            <td colspan="3" style="font-size: 9pt; border-width: 1pt; border-color: black;">{{ $address[$index] }}</td>
         </tr>
     </table>
-    <table class="table table-bordered" style="width: 100%; border-width: 1pt; border-color: black; margin-top: 20px;">
-        <tr>
-            <th colspan="4" class="text-center">Member 2</th>
-        </tr>
-        <tr>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Identiy Number</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">32105428810000 </td>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Name</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">Ruru</td>
-        </tr>
-        <tr>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Email</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">ruru@gmail.com</td>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Birthdate</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">05-09-2000</td>
-        </tr>
-        <tr>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Phone Number</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">085461520000</td>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Gender</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">Female</td>
-        </tr>
-        <tr>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Address</th>
-            <td colspan="3" style="font-size: 9pt; border-width: 1pt; border-color: black;">Kota Bogor</td>
-        </tr>
-    </table>
-    <table class="table table-bordered" style="width: 100%; border-width: 1pt; border-color: black; margin-top: 20px;">
-        <tr>
-            <th colspan="4" class="text-center">Member 3</th>
-        </tr>
-        <tr>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Identiy Number</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">3210542881111 </td>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Name</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">Rara</td>
-        </tr>
-        <tr>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Email</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">rara@gmail.com</td>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Birthdate</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">26-05-2000</td>
-        </tr>
-        <tr>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Phone Number</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">08546152111</td>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Gender</th>
-            <td style="font-size: 9pt; border-width: 1pt; border-color: black;">Female</td>
-        </tr>
-        <tr>
-            <th style="font-size: 9pt; border-width: 1pt; border-color: black;">Address</th>
-            <td colspan="3" style="font-size: 9pt; border-width: 1pt; border-color: black;">Kota Bogor</td>
-        </tr>
-    </table>
+    @endforeach
 	</div>
 </body>
 </html>
