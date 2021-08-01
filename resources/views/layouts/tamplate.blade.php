@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>@yield('title')</title>
   <meta content="" name="description">
@@ -54,46 +54,53 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
+      <nav id="navbar1" class="navbar1 order-last order-lg-0">
         <ul>
           @guest
             @if (Route::has('login'))
-              <li>
-                <a href="{{ route('login') }}" class="book-a-table-btn scrollto d-none d-lg-flex p-2">
-                  <span>
-                    Login
-                  </span> 
-                </a>
-              </li>  
+            <li>
+              <a href="{{ route('login') }}" class="book-a-table-btn scrollto p-2 ">
+                <span>
+                  Login
+                </span> 
+              </a>
+            </li>  
             @endif                
             @else
-            <ul>
-                <li class="dropdown">
-                  <a href="#" class="book-a-table-btn scrollto d-none d-lg-flex p-2">
-                    <span>{{ Auth::user()->name }}</span> 
-                    <i class="bi bi-chevron-down"></i>
-                  </a>
-                  <ul>
-                      <li>
-                        <a href="{{ route('logout') }} " onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                          Logout
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                          @csrf
-                        </form>
-                      </li>
-                  </ul>                
-                </li>
-            </ul>
+            <li class="dropdown">
+              <a href="#" class="book-a-table-btn scrollto p-2">
+                <span>{{ Auth::user()->name }}</span> 
+                <i class="bi bi-chevron-down"></i>
+              </a>
+              <ul>
+                  <li>
+                    <a href="{{ route('logout') }} " onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                      Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                    </form>
+                  </li>
+                  <li>
+                    @if (App\Models\Regist::where('users_id', Auth::user()->id)->exists())
+                    <hr style="color: gray">
+                    <a href="" style="margin-left: 15%;"> 
+                      <button type="button" class="btn btn-success btn-sm text-light text-center">Registration</button>
+                    </a>
+                    @endif  
+                  </li>
+              </ul>                
+            </li>
           @endguest
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
 
-     @yield('section')
-     
+  @yield('section')
+  
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">

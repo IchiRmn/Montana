@@ -22,12 +22,12 @@
             <td style="font-size: 9pt;">Destination</td>
             <td style="font-size: 9pt;">: {{ $mount }}</td>
             <td style="font-size: 9pt;">Name</td>
-            <td style="font-size: 9pt;">: {{ Auth::user()->name; }}</td>
+            <td style="font-size: 9pt;">: {{ $user_name }}</td>
         <tr>
             <td style="font-size: 9pt;">Start From</td>
             <td style="font-size: 9pt;">: {{ $date_start }}</td>
             <td style="font-size: 9pt;">Email</td>
-            <td style="font-size: 9pt;">: {{ Auth::user()->email }}</td>    
+            <td style="font-size: 9pt;">: {{ $user_email }}</td>    
         </tr>
         <tr>
             <td style="font-size: 9pt;">Until</td>

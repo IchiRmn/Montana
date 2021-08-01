@@ -171,6 +171,8 @@ class RegistController extends Controller
         foreach ($regist as $regist) {
 
             $id_regist = $regist->registId;
+            $user_name = $regist->name;
+            $user_email = $regist->email;
             $mount = $regist->mountain_name;
             $date_start = $regist->date_start;
             $date_end = $regist->date_end;
@@ -188,6 +190,8 @@ class RegistController extends Controller
 
         $data = [
             'id_regist' => $id_regist,
+            'user_name' => $user_name,
+            'user_email' => $user_email,
             'mount' => $mount,
             'date_start' => $date_start,
             'date_end' => $date_end,

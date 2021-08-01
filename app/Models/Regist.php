@@ -13,6 +13,7 @@ class Regist extends Model
     public static function regist()
     {
         $regists = DB::table('regists')
+            ->join('users', 'regists.users_id', '=', 'users.id')
             ->join('members', 'regists.registId', '=', 'members.regists_id')
             ->join('hikes', 'regists.hikes_id', '=', 'hikes.id')
             ->join('mountains', 'mountains.id', '=', 'hikes.mountains_id')

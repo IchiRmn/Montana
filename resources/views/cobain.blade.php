@@ -46,10 +46,10 @@ $('#my_modal').on('show.bs.modal', function(e) {
 
       <div>{{ $regist->member_name; }}</div><br>
   @endforeach --}}
-  <div>{{ $registId }}</div>
+  {{-- <div>{{ $registId }}</div>
 @foreach ($member as $member)
    <div>{{ $member }}</div> 
-@endforeach
+@endforeach --}}
   {{-- @foreach ($regist as $regist)
       {{ $regist->member_name; }}
   @endforeach --}}

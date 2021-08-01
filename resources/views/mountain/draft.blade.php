@@ -131,8 +131,7 @@
               </div>
             </div>
           </div>
-        </div>   
-        <a href="{{ url('/test/'. $id_regist) }}">Coba duls</a>                 
+        </div>
       </section>
 </main>
 @endsection
