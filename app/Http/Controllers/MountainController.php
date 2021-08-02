@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeZone;
 use App\Models\Mountain;
 use App\Models\Quota;
+use App\Models\Regist;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -92,7 +93,7 @@ class MountainController extends Controller
     {
         $selectMountain = mountain::where('id', $id)->get();
 
-        // // // looping for date
+        //looping for date
         $date_start = date('Y-m-d', strtotime("+2days"));
         $date_end = date('Y-m-d', strtotime("+11days"));
         $date_ = array();
@@ -102,14 +103,14 @@ class MountainController extends Controller
             $date_start = date('Y-m-d', strtotime('+1 days', strtotime($date_start)));
             $date_[] = $date_start;
         }
-        // // // endlooping
+        //endlooping
 
         // print_r($date_);
         // print $date_end;
         // print $date_;
         $qta = array();
 
-        // // // looping for quota
+        //looping for quota
         for ($i = 0; $i <= 9; $i++) {
             $mounts = mountain::where('id', $id);
             $quota0 = quota::where('quota_date', $date_[$i])->where('mount_id', $id);
@@ -124,26 +125,17 @@ class MountainController extends Controller
                 // $qta[] = 300;
             }
         }
-        // // // endlooping
+        //endlooping
 
-        // // // print_r($qta);
+        //print_r($qta);
 
         return view('mountain.mount')->with('selectMountain', $selectMountain)->with('dates', $date_)->with('qta', $qta);
     }
 
-// foreach ($quota as $q) {
-//     $data['q'] = $quota->quota;
-// }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function result($id)
     {
-        //
+        $regist = Regist::result()->where('users_id', $id);
+        return view('mountain.result')->with('regist', $regist);
     }
 
     /**

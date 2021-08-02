@@ -22,6 +22,17 @@ class Regist extends Model
         return $regists;
     }
 
+    public static function result()
+    {
+        $regists = DB::table('regists')
+        ->join('users', 'regists.users_id', '=', 'users.id')
+        ->join('hikes', 'regists.hikes_id', '=', 'hikes.id')
+        ->join('mountains', 'mountains.id', '=', 'hikes.mountains_id')
+        ->select('*')->get();
+        return $regists;
+    }
+
+
     public static function Code($request)
     {
         $idMounts = $request->input('idMount');

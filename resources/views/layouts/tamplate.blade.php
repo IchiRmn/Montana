@@ -84,16 +84,16 @@
                   <li>
                     @if (App\Models\Regist::where('users_id', Auth::user()->id)->exists())
                     <hr style="color: gray">
-                    <a href="" style="margin-left: 15%;"> 
-                      <button type="button" class="btn btn-success btn-sm text-light text-center">Registration</button>
-                    </a>
+                      <a href="{{ url('/result/'. Auth::user()->id ) }}" style="margin-left: 20%;"> 
+                        <button type="button" class="btn btn-success text-light">History</button>
+                      </a>
                     @endif  
                   </li>
               </ul>                
             </li>
           @endguest
         </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
+        <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>

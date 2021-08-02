@@ -35,6 +35,7 @@ Route::get('/mount/{id}', [MountainController::class, 'show']);
 Route::get('/regist', [MountainController::class, 'regist'])->middleware('auth');
 Route::post('/inputRegist', [RegistController::class, 'input']);
 Route::get('/print-pdf/{id}', [RegistController::class, 'print_pdf']);
+Route::get('/result/{id}', [MountainController::class, 'result']);
 
 
 // Route::get('/regist', function () {
