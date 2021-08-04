@@ -46,7 +46,7 @@ Route::get('/result/{id}', [MountainController::class, 'result']);
 Route::get(
     '/cobain',
     function () {
-        return view('mountain.draft');
+        return view('admin.index');
     }
 );
 
