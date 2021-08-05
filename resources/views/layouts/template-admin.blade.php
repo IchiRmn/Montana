@@ -12,12 +12,12 @@
     <title>@yield('title')</title>
 
     <!-- ========== All CSS files linkup ========= -->
-    <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/css/LineIcons.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/css/materialdesignicons.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/css/fullcalendar.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/css/fullcalendar.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/css/main.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin-asset/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin-asset/css/LineIcons.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin-asset/css/materialdesignicons.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin-asset/css/fullcalendar.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin-asset/css/fullcalendar.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin-asset/css/main.css') }}" />
   </head>
   <body>
     <!-- ======== sidebar-nav start =========== -->
@@ -45,7 +45,7 @@
             <ul id="ddmenu_1" class="collapse dropdown-nav">
               <li>
                 <a href="index.html">
-                  <i class="lni lni-arrow-right"></i> Details
+                  <i class="lni lni-arrow-right"></i> Show
                 </a>
               </li>
 			  <li>
@@ -71,7 +71,7 @@
             <ul id="ddmenu_2" class="collapse dropdown-nav">
               <li>
                 <a href="index.html">
-                  <i class="lni lni-arrow-right"></i> Details
+                  <i class="lni lni-arrow-right"></i> Show
                 </a>
               </li>
 			  <li>
@@ -97,7 +97,7 @@
             <ul id="ddmenu_3" class="collapse dropdown-nav">
               <li>
                 <a href="index.html">
-                  <i class="lni lni-arrow-right"></i> Details
+                  <i class="lni lni-arrow-right"></i> Show
                 </a>
               </li>
 			  <li>
@@ -178,7 +178,7 @@
                   >
                     <div class="profile-info">
                       <div class="info">
-                        <h6 style="margin-right: 10px;">Admin</h6>
+                        <h6 style="margin-right: 10px;">{{ Auth::user()->name }}</h6>
                       </div>
                     </div>
                     <i class="lni lni-chevron-down"></i>
@@ -188,7 +188,10 @@
                     aria-labelledby="profile"
                   >
                     <li>
-                      <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
+                      <a href="{{ route('logout') }} " onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="lni lni-exit"></i> Sign Out </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                      </form>
                     </li>
                   </ul>
                 </div>
@@ -232,15 +235,15 @@
     <!-- ======== main-wrapper end =========== -->
 
     <!-- ========= All Javascript files linkup ======== -->
-    <script src="{{ asset('admin/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('admin/js/Chart.min.js') }}"></script>
-    <script src="{{ asset('admin/js/dynamic-pie-chart.js') }}"></script>
-    <script src="{{ asset('admin/js/moment.min.js') }}"></script>
-    <script src="{{ asset('admin/js/fullcalendar.js') }}"></script>
-    <script src="{{ asset('admin/js/jvectormap.min.js') }}"></script>
-    <script src="{{ asset('admin/js/world-merc.js') }}"></script>
-    <script src="{{ asset('admin/js/polyfill.js') }}"></script>
-    <script src="{{ asset('admin/js/main.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/Chart.min.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/dynamic-pie-chart.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/moment.min.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/fullcalendar.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/jvectormap.min.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/world-merc.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/polyfill.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/main.js') }}"></script>
 
     <script>
       // =========== chart one start

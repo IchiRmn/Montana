@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\User;
+use App\Models\Mountain;
+use App\Models\Regist;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -16,7 +19,16 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $user = User::all();
+        $mount = Mountain::all();
+        $result = Regist::result();
+        $regist = Regist::regist();
+
+        return view('admin.index')
+        ->with('user', $user)
+            ->with('mount', $mount)
+            ->with('regist', $regist)
+            ->with('result', $result);
     }
 
     /**

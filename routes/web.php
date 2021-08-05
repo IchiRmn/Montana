@@ -43,12 +43,12 @@ Route::get('/result/{id}', [MountainController::class, 'result']);
 // });
 
 
-Route::get(
-    '/cobain',
-    function () {
-        return view('admin.index');
-    }
-);
+// Route::get(
+//     '/cobain',
+//     function () {
+//         return view('admin.index');
+//     }
+// );
 
 Route::get('/test/{id}', [RegistController::class, 'test']);
 // Route::get('login1', function () {

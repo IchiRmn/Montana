@@ -56,7 +56,7 @@
 		  </div>
 		  <div class="content">
 			<h6 class="mb-10">Users</h6>
-			<h3 class="text-bold mb-10">34567</h3>
+			<h3 class="text-bold mb-10">{{ $user->count() }}</h3>
 		  </div>
 		</div>
 		<!-- End Icon Cart -->
@@ -69,7 +69,7 @@
 		  </div>
 		  <div class="content">
 			<h6 class="mb-10">Destination</h6>
-			<h3 class="text-bold mb-10">74,567</h3>
+			<h3 class="text-bold mb-10">{{ $mount->count() }}</h3>
 		  </div>
 		</div>
 		<!-- End Icon Cart -->
@@ -82,7 +82,7 @@
 		  </div>
 		  <div class="content">
 			<h6 class="mb-10">Registration</h6>
-			<h3 class="text-bold mb-10">24,567</h3>
+			<h3 class="text-bold mb-10">{{ $result->count() }}</h3>
 		  </div>
 		</div>
 		<!-- End Icon Cart -->
@@ -95,7 +95,7 @@
 		  </div>
 		  <div class="content">
 			<h6 class="mb-10">Members</h6>
-			<h3 class="text-bold mb-10">34567</h3>
+			<h3 class="text-bold mb-10">{{ $regist->count() }}</h3>
 		  </div>
 		</div>
 		<!-- End Icon Cart -->
@@ -105,7 +105,7 @@
 	<!-- End Row -->
 	
 	<div class="row">
-	  <div class="col-lg-6">
+	  <div class="col-lg-4">
 		<div class="card-style mb-30">
 		  <div
 			class="title d-flex flex-wrap justify-content-between  align-items-center"
@@ -119,83 +119,43 @@
 			<table class="table top-selling-table">
 			  <thead>
 				<tr>
-				  <th></th>
-				  <th>
-					<h6 class="text-sm text-medium">Products</h6>
+				  <th class="min-width">
+					<h6 class="text-sm text-medium">ID</h6>
 				  </th>
 				  <th class="min-width">
-					<h6 class="text-sm text-medium">Category</h6>
+					<h6 class="text-sm text-medium">Name</h6>
 				  </th>
 				  <th class="min-width">
-					<h6 class="text-sm text-medium">Price</h6>
+					<h6 class="text-sm text-medium">Email</h6>
 				  </th>
 				  <th class="min-width">
-					<h6 class="text-sm text-medium">Sold</h6>
-				  </th>
-				  <th class="min-width">
-					<h6 class="text-sm text-medium">Profit</h6>
+					<h6 class="text-sm text-medium">Role</h6>
 				  </th>
 				  <th></th>
 				</tr>
 			  </thead>
 			  <tbody>
-				<tr>
-				  <td>
-					<div class="check-input-primary">
-					  <input
-						class="form-check-input"
-						type="checkbox"
-						id="checkbox-1"
-					  />
-					</div>
-				  </td>
-				  <td>
-					<div class="product">
-					  <div class="image">
-						<img
-						  src="assets/images/products/product-mini-1.jpg"
-						  alt=""
-						/>
-					  </div>
-					  <p class="text-sm">Arm Chair</p>
-					</div>
-				  </td>
-				  <td>
-					<p class="text-sm">Interior</p>
-				  </td>
-				  <td>
-					<p class="text-sm">$345</p>
-				  </td>
-				  <td>
-					<p class="text-sm">43</p>
-				  </td>
-				  <td>
-					<p class="text-sm">$45</p>
-				  </td>
-				  <td>
-					<div class="action justify-content-end">
-					  <button
-						class="more-btn ml-10 dropdown-toggle"
-						id="moreAction1"
-						data-bs-toggle="dropdown"
-						aria-expanded="false"
-					  >
-						<i class="lni lni-more-alt"></i>
-					  </button>
-					  <ul
-						class="dropdown-menu dropdown-menu-end"
-						aria-labelledby="moreAction1"
-					  >
-						<li class="dropdown-item">
-						  <a href="#0" class="text-gray">Remove</a>
-						</li>
-						<li class="dropdown-item">
-						  <a href="#0" class="text-gray">Edit</a>
-						</li>
-					  </ul>
-					</div>
-				  </td>
-				</tr>
+				  @foreach (App\Models\User::all() as $auth)
+				  <tr>
+					<td>	
+					  <p class="text-sm text-start">{{ $auth->id }}</p>
+					</td>
+					<td>
+					  <p class="text-sm">{{ $auth->name }}</p>
+					</td>
+					<td>
+					  <p class="text-sm">{{ $auth->email }}</p>
+					</td>
+					<td>
+						@php
+							$r = App\Models\Role::where('id', $auth->role_id)->get();
+						@endphp
+						@foreach ($r as $r)				
+							<p class="text-sm">{{ $r->role}}</p>
+						@endforeach
+					</td>
+				  </tr>
+				  @endforeach
 			  </tbody>
 			</table>
 			<!-- End Table -->
@@ -203,7 +163,7 @@
 		</div>
 	  </div>
 	  <!-- End Col -->
-	<div class="col-lg-6">
+	<div class="col-lg-8">
 		<div class="card-style mb-30">
 		  <div
 			class="title d-flex flex-wrap justify-content-between align-items-center"
@@ -217,83 +177,55 @@
 			<table class="table top-selling-table">
 			  <thead>
 				<tr>
-				  <th></th>
 				  <th>
-					<h6 class="text-sm text-medium">Products</h6>
+					<h6 class="text-sm text-medium">No</h6>
+				  </th>
+				  <th>
+					<h6 class="text-sm text-medium">Name</h6>
 				  </th>
 				  <th class="min-width">
-					<h6 class="text-sm text-medium">Category</h6>
+					<h6 class="text-sm text-medium">Height</h6>
 				  </th>
 				  <th class="min-width">
-					<h6 class="text-sm text-medium">Price</h6>
+					<h6 class="text-sm text-medium">Maximum Quota/Day</h6>
 				  </th>
 				  <th class="min-width">
-					<h6 class="text-sm text-medium">Sold</h6>
+					<h6 class="text-sm text-medium">Member Limit</h6>
 				  </th>
 				  <th class="min-width">
-					<h6 class="text-sm text-medium">Profit</h6>
+					<h6 class="text-sm text-medium">Maximum Stay</h6>
 				  </th>
 				  <th></th>
 				</tr>
 			  </thead>
 			  <tbody>
+				@foreach ($mount as $mount)	
 				<tr>
-				  <td>
-					<div class="check-input-primary">
-					  <input
-						class="form-check-input"
-						type="checkbox"
-						id="checkbox-1"
-					  />
-					</div>
+				  <td>				
+					<p class="text-sm">{{ $loop->iteration }}</p>
+				  </td>	
+				  <td>				
+					<p class="text-sm">{{ $mount->mountain_name }}</p>
 				  </td>
 				  <td>
-					<div class="product">
-					  <div class="image">
-						<img
-						  src="assets/images/products/product-mini-1.jpg"
-						  alt=""
-						/>
-					  </div>
-					  <p class="text-sm">Arm Chair</p>
-					</div>
+					<p class="text-sm">{{ $mount->height }}</p>
 				  </td>
 				  <td>
-					<p class="text-sm">Interior</p>
+					<p class="text-sm">{{ $mount->quota }}</p>
 				  </td>
 				  <td>
-					<p class="text-sm">$345</p>
+					<p class="text-sm">{{ $mount->max }}</p>
 				  </td>
 				  <td>
-					<p class="text-sm">43</p>
-				  </td>
-				  <td>
-					<p class="text-sm">$45</p>
+					<p class="text-sm">{{ $mount->days }}</p>
 				  </td>
 				  <td>
 					<div class="action justify-content-end">
-					  <button
-						class="more-btn ml-10 dropdown-toggle"
-						id="moreAction1"
-						data-bs-toggle="dropdown"
-						aria-expanded="false"
-					  >
-						<i class="lni lni-more-alt"></i>
-					  </button>
-					  <ul
-						class="dropdown-menu dropdown-menu-end"
-						aria-labelledby="moreAction1"
-					  >
-						<li class="dropdown-item">
-						  <a href="#0" class="text-gray">Remove</a>
-						</li>
-						<li class="dropdown-item">
-						  <a href="#0" class="text-gray">Edit</a>
-						</li>
-					  </ul>
+						<a href="#0" class="main-btn dark-btn rounded-md btn-hover btn-sm text-sm" style="padding: 5px;">Details</a>
 					</div>
 				  </td>
 				</tr>
+				@endforeach
 			  </tbody>
 			</table>
 			<!-- End Table -->
@@ -317,84 +249,80 @@
 			<div class="table-responsive" style="height: 400px; overflow: auto;">
 			  <table class="table top-selling-table" >
 				<thead>
-				  <tr>
-					<th></th>
+				<tr>
 					<th>
-					  <h6 class="text-sm text-medium">Products</h6>
+					<h6 class="text-sm text-medium">No</h6>
+					</th>
+					<th>
+					<h6 class="text-sm text-medium">ID Registration</h6>
 					</th>
 					<th class="min-width">
-					  <h6 class="text-sm text-medium">Category</h6>
+					<h6 class="text-sm text-medium">Registrant</h6>
 					</th>
 					<th class="min-width">
-					  <h6 class="text-sm text-medium">Price</h6>
+					<h6 class="text-sm text-medium">Destination</h6>
 					</th>
 					<th class="min-width">
-					  <h6 class="text-sm text-medium">Sold</h6>
+					<h6 class="text-sm text-medium">Number Of Members</h6>
 					</th>
 					<th class="min-width">
-					  <h6 class="text-sm text-medium">Profit</h6>
+					<h6 class="text-sm text-medium">Date Start</h6>
+					</th>
+					<th class="min-width">
+					<h6 class="text-sm text-medium">End Date</h6>
+					</th>
+					<th class="min-width">
+					<h6 class="text-sm text-medium">Status</h6>
+					</th>
+					<th class="min-width">
+					<h6 class="text-sm text-medium">Payment</h6>
 					</th>
 					<th></th>
-				  </tr>
+				</tr>
 				</thead>
 				<tbody>
-				  <tr>
-					<td>
-					  <div class="check-input-primary">
-						<input
-						  class="form-check-input"
-						  type="checkbox"
-						  id="checkbox-1"
-						/>
-					  </div>
-					</td>
-					<td>
-					  <div class="product">
-						<div class="image">
-						  <img
-							src="assets/images/products/product-mini-1.jpg"
-							alt=""
-						  />
-						</div>
-						<p class="text-sm">Arm Chair</p>
-					  </div>
-					</td>
-					<td>
-					  <p class="text-sm">Interior</p>
-					</td>
-					<td>
-					  <p class="text-sm">$345</p>
-					</td>
-					<td>
-					  <p class="text-sm">43</p>
-					</td>
-					<td>
-					  <p class="text-sm">$45</p>
-					</td>
-					<td>
-					  <div class="action justify-content-end">
-						<button
-						  class="more-btn ml-10 dropdown-toggle"
-						  id="moreAction1"
-						  data-bs-toggle="dropdown"
-						  aria-expanded="false"
-						>
-						  <i class="lni lni-more-alt"></i>
-						</button>
-						<ul
-						  class="dropdown-menu dropdown-menu-end"
-						  aria-labelledby="moreAction1"
-						>
-						  <li class="dropdown-item">
-							<a href="#0" class="text-gray">Remove</a>
-						  </li>
-						  <li class="dropdown-item">
-							<a href="#0" class="text-gray">Edit</a>
-						  </li>
-						</ul>
-					  </div>
-					</td>
-				  </tr>
+				@foreach ($result as $result)	
+				<tr>
+				  <td>				
+					<p class="text-sm">{{ $loop->iteration }}</p>
+				  </td>	
+				  <td>				
+					<p class="text-sm">{{ $result->registId }}</p>
+				  </td>
+				  <td>
+					<p class="text-sm">{{ $result->name }}</p>
+				  </td>
+				  <td>
+					<p class="text-sm">Mt. {{ $result->mountain_name }}</p>
+				  </td>
+				  <td>
+					<p class="text-sm">{{ $regist->where('regists_id', $result->registId)->count() }}</p>
+				  </td>
+				  <td>
+					<p class="text-sm">{{ $result->date_start }}</p>
+				  </td>
+				  <td>
+					<p class="text-sm">{{ $result->date_end }}</p>
+				  </td>
+				  @if ($result->status === "Unpaid")
+				  <td>
+					<span class="status-btn close-btn">Unpaid</span>
+				  </td>
+				  @else
+				  <td>
+					<span class="status-btn succes-btn">Paid</span>
+				  </td>
+				  @endif
+				  <td>
+					<p class="text-sm">{{ $result->payment }}</p>
+				  </td>
+				  <td>
+					<div class="action justify-content-end">
+						<a href="#0" class="main-btn dark-btn rounded-md btn-hover btn-sm text-sm" style="padding: 5px;">Details</a>
+					</div>
+				  </td>
+				</tr>
+				@endforeach
 				</tbody>
 			  </table>
 			  <!-- End Table -->
