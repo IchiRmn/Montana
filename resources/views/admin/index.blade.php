@@ -221,7 +221,7 @@
 				  </td>
 				  <td>
 					<div class="action justify-content-end">
-						<a href="#0" class="main-btn dark-btn rounded-md btn-hover btn-sm text-sm" style="padding: 5px;">Details</a>
+						<a href="{{ url('/mount-details/'.$mount->id) }}" class="main-btn dark-btn rounded-md btn-hover btn-sm text-sm" style="padding: 5px;">Details</a>
 					</div>
 				  </td>
 				</tr>

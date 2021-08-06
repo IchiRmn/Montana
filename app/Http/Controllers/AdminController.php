@@ -36,9 +36,21 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function mountDetails($id)
     {
-        //
+        $mount = Mountain::find($id);
+        return view('admin/details-mountain')->with('mount', $mount);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function editDestination($id)
+    {
+        $mount = Mountain::find($id);
+        return view('admin/editDestination')->with('mount', $mount);
     }
 
     /**
@@ -47,9 +59,9 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function updateDestination(Request $request)
     {
-        //
+        return "Done";
     }
 
     /**

@@ -29,6 +29,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/admin', [AdminController::class, 'index'])->middleware('role:1');
+Route::get('/mount-details/{id}', [AdminController::class, 'mountDetails'])->middleware('role:1');
+Route::get('/editDestination/{id}', [AdminController::class, 'editDestination'])->middleware('role:1');
+Route::post('/updateDestination', [AdminController::class, 'updateDestination'])->middleware('role:1');
 
 Route::get('/list', [MountainController::class, 'index']);
 Route::get('/mount/{id}', [MountainController::class, 'show']);
