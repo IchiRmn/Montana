@@ -54,7 +54,7 @@
               </div>
               <div class="text-end">
                 <a href="{{ url()->previous(); }}" class="btn btn-secondary">Back</a>
-                <a href="{{ url('/editDestination/'.$mount->id); }}" class="btn btn-success">Edit</a>
+                <a href="{{ route('CrudMountain.edit',$mount->id); }}" class="btn btn-success">Edit</a>
               </div>
             </div>
           </div>

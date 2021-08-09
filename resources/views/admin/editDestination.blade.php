@@ -21,21 +21,29 @@
     </div>
     <div class="row justify-content-center">        
         <div class="col-lg-7">
-          <form action="/updateDestination" method="POST">
+          <form action="{{ route('CrudMountain.update', $mount->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="card-style settings-card-1 mb-30">
                 <div class="profile-info">
                     <div class="row">
                         <div class="col-xxl-7">
                             <div class="input-style-1">
                                 <label>Name</label>
-                                <input type="text" placeholder="" value=""/>
+                                <input name="name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" autocomplete="name" autofocus />
+
+                                @error('name')
+                                <div id="name" class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+
                             </div>
                         </div>
                           <div class="col-xxl-5">
                             <div class="input-style-1">                            
                                 <label>Image</label>
-                                <input type="file" placeholder="" value=""/>
+                                <input name="image" id="image" type="file" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" autocomplete="name" autofocus/>
                             </div>
                          </div>
                     </div>
@@ -75,7 +83,7 @@
                     </div>
                     <div class="text-end">
                         <a href="{{ url()->previous(); }}" class="btn btn-secondary">Back</a>
-                        <button type="submit" href="{{ url('/editDestination/'.$mount->id); }}" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </div>

@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mountain extends Model
 {
-    // use HasFactory;
+    protected $fillable = ['mountain_name'];
 }
