@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mountain extends Model
 {
-    protected $fillable = ['mountain_name'];
+    protected $fillable = ['mountain_name', 'height', 'img', 'description', 'days', 'quota', 'max'];
 }

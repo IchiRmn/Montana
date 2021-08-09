@@ -24,9 +24,11 @@
           <div class="card-style settings-card-1 mb-30">
             <div class="title mb-30 d-flex justify-content-between align-items-center">
               <h2><b> Mt. {{ $mount->mountain_name }}</b></h2>
-              <button class="border-0 bg-transparent">
-                <i class="lni lni-pencil-alt"></i>
-              </button>
+              <a href="{{ route('CrudMountain.edit',$mount->id); }}" >
+                <button class="border-0 bg-transparent">
+                  <i class="lni lni-pencil-alt"></i>
+                </button>
+              </a>
             </div>
             <div class="profile-info">
               <div class="d-flex align-items-center mb-30">                
@@ -48,9 +50,7 @@
               </div>
               <div class="input-style-1">
                 <label>Description</label>
-                <textarea placeholder="Write your bio here" rows="10" readonly>
-                    {{ $mount->description }}
-                </textarea>
+                <textarea style="text-indent: 7%;" rows="10" readonly>{{ $mount->description }}</textarea>
               </div>
               <div class="text-end">
                 <a href="{{ url()->previous(); }}" class="btn btn-secondary">Back</a>

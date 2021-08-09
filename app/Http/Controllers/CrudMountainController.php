@@ -72,34 +72,47 @@ class CrudMountainController extends Controller
     {
         $request->validate([
             'name' => 'required|min:2',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:6048',
+            'height' => 'required|numeric',
+            'maximum_member' => 'required|numeric',
+            'quota' => 'required|numeric',
+            'maximum_stay' => 'required|numeric',
+            'description' => 'required|min:30'
         ]);
 
-    $mount = Mountain::find($id);
+        $mount = Mountain::find($id);
 
-     if($request->img != ''){        
+        if ($request->image != '') {        
           $path = public_path().'/img/Mountain/';
 
-          //code for remove old file
-          if($mount->img != ''  && $employee->file != null){
-               $file_old = $path.$employee->file;
+            //code for remove old file
+            if ($mount->img != ''  && $mount->img != null) {
+                $file_old = $path . $mount->img;
                unlink($file_old);
           }
 
-          //upload new file
-          $file = $request->file;
-          $filename = $file->getClientOriginalName();
-          $file->move($path, $filename);
+            //upload new file
+            $file = $request->image;
+            $filename = $file->getClientOriginalName();
+            $file->move($path, $filename);
 
-          //for update in table
-          $employee->update(['file' => $filename]);
-
+            //for update in table
+            $mount->update(['img' => $filename]);
+        }
+        
         $data = [
-            'mountain_name' => $request->name
+            'mountain_name' => $request->name,
+            'height' => $request->height,
+            'max' => $request->maximum_member,
+            'quota' => $request->quota,
+            'days' => $request->maximum_stay,
+            'description' => $request->description,
+
         ];
 
         $mount->update($data);
 
-        return "Done";
+        return $request->name;
     }
 
     /**
