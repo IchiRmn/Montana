@@ -4,7 +4,7 @@
 <div class="limiter">
     <div class="container-login100">
 
-         @if (session('error'))
+        @if (session('error'))
          <div class="alert alert-danger alert-dismissible fade show" style="position: fixed; z-index: 999; margin-bottom: 500px;" role="alert"  id="danger-alert">
             {{ session('error') }}!
             <button type="button" class="btn-close btn-outline-danger" data-bs-dismiss="alert" aria-label="Close">

@@ -203,6 +203,21 @@
       </header>
       <!-- ========== header end ========== -->
 
+      <!-- ========== session ========== -->
+      @if (session('error'))
+      <div class="alert alert-danger alert-dismissible fade show" style="position: fixed; z-index: 999; margin-left:40%;" role="alert"  id="danger-alert">
+         {{ session('error') }}!
+         <button type="button" class="btn-close btn-outline-danger" data-bs-dismiss="alert" aria-label="Close">
+      </div>
+      @endif
+      @if (session('success'))
+      <div class="alert alert-success alert-dismissible fade show" style="position: fixed; z-index: 999; margin-left:35%;" role="alert"  id="success-alert">
+         {{ session('success') }}
+         <button type="button" class="btn-close btn-outline-success" data-bs-dismiss="alert" aria-label="Close">
+      </div>
+      @endif
+      <!-- ========== session end ========== -->  
+      
       @yield('content')
 
       <!-- ========== footer start =========== -->

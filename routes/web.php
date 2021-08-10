@@ -6,6 +6,7 @@ use App\Http\Controllers\MountainController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegistController;
 use App\Http\Controllers\CrudMountainController;
+use App\Http\Controllers\CrudRegistController;
 
 
 /*
@@ -32,6 +33,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin', [AdminController::class, 'index'])->middleware('role:1');
 
 Route::resource('CrudMountain', CrudMountainController::class)->middleware('role:1');
+Route::resource('CrudRegist', CrudRegistController::class)->middleware('role:1');
+Route::post('/editRegist', [CrudRegistController::class, 'edit'])->middleware('role:1');
 
 Route::get('/list', [MountainController::class, 'index']);
 Route::get('/mount/{id}', [MountainController::class, 'show']);

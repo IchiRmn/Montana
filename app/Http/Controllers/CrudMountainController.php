@@ -46,7 +46,7 @@ class CrudMountainController extends Controller
     public function show($id)
     {
         $mount = Mountain::find($id);
-        return view('admin/details-mountain')->with('mount', $mount);
+        return view('admin/detailsMountain')->with('mount', $mount);
     }
 
     /**
@@ -72,7 +72,7 @@ class CrudMountainController extends Controller
     {
         $request->validate([
             'name' => 'required|min:2',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:6048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:6048',
             'height' => 'required|numeric',
             'maximum_member' => 'required|numeric',
             'quota' => 'required|numeric',
@@ -112,7 +112,7 @@ class CrudMountainController extends Controller
 
         $mount->update($data);
 
-        return $request->name;
+        return redirect('/admin')->with(['success' => 'Data updated successfully!']);
     }
 
     /**

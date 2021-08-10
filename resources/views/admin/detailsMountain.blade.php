@@ -61,6 +61,7 @@
           <!-- end card -->
         </div>
         <!-- end col -->
+    </div>
     <!-- ========== title-wrapper end ========== -->
 </div>
 <!-- end container -->

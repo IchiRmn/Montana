@@ -310,7 +310,7 @@
 				  </td>
 				  @else
 				  <td>
-					<span class="status-btn succes-btn">Paid</span>
+					<span class="status-btn success-btn">Paid</span>
 				  </td>
 				  @endif
 				  <td>
@@ -318,7 +318,7 @@
 				  </td>
 				  <td>
 					<div class="action justify-content-end">
-						<a href="#0" class="main-btn dark-btn rounded-md btn-hover btn-sm text-sm" style="padding: 5px;">Details</a>
+						<a href="{{ route('CrudRegist.show', $result->registId) }}" class="main-btn dark-btn rounded-md btn-hover btn-sm text-sm" style="padding: 5px;">Details</a>
 					</div>
 				  </td>
 				</tr>
