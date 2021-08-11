@@ -19,8 +19,6 @@
         </div>
         <!-- end row -->
     </div>
-    <form action="/editRegist" method="POST">
-    @csrf
     <div class="row justify-content-center">
         @foreach ($hike as $hike)     
         <div class="col-lg-7">
@@ -153,14 +151,13 @@
                     </div>
                 </div>
                 <hr>
-                <input type="text" name ="memberId" value="{{ $member->id }}"hidden>
                 @endforeach
             </div>
             <div class="row">
                 <div class="col">
                     <div class="text-end">
                         <a href="{{ url()->previous(); }}" class="btn btn-secondary">Back</a>
-                        <button type="submit" class="btn btn-success">Edit</button>
+                        <a href="{{ route('CrudRegist.edit', $hike->registId); }}" class="btn btn-success">Edit</a>
                     </div>
                 </div>
             </div>
@@ -168,12 +165,11 @@
         </div>
         <!-- end col -->
 
-        <input type="text" name ="mountId" value="{{ $hike->mountains_id }}"hidden>
-        <input type="text" name ="registId" value="{{ $hike->registId }}"hidden>
+        {{-- <input type="text" name ="mountId" value="{{ $hike->mountains_id }}"hidden>
+        <input type="text" name ="registId" value="{{ $hike->registId }}"hidden> --}}
 
         @endforeach        
     </div>
-</form>
     <!-- ========== title-wrapper end ========== -->
 </div>
 <!-- end container -->

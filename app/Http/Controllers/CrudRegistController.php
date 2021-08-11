@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Regist;
 use App\Models\Member;
 use App\Models\Mountain;
+use App\Models\Hike;
 
 class CrudRegistController extends Controller
 {
@@ -57,59 +59,104 @@ class CrudRegistController extends Controller
     /**
      * Show the form for editing the specified resource.
      * 
-     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request  $request)
+    public function edit($id)
     {
 
-        $registId = $request->registId;
-        $mountId = $request->mountId;
+        // $registId = $request->registId;
+        // $mountId = $request->mountId;
 
-        $hike = Regist::result()->where('registId', $registId);
-        $member = Member::where('regists_id', $registId)->get();
-        $mount = Mountain::where('id', $mountId)->get();
+        $hike = Regist::result()->where('registId', $id);
+        $member = Member::where('regists_id', $id)->get();
 
-        foreach ($mount as $mount) {
-            $count = $mount->days;
+        foreach ($hike as $hikes) {
+            // $mountId = $hikes->mountains_id;
+
+            $data = [
+                'registId' => $hikes->registId,
+                'userName' => $hikes->name,
+                'userEmail' => $hikes->email,
+                'dest' => $hikes->mountain_name,
+                'dateStart' => $hikes->date_start,
+                'dateEnd' => $hikes->date_end,
+                'payment' => $hikes->payment,
+                'status' => $hikes->status,
+            ];
         }
 
-        $date_start = date('Y-m-d', strtotime("+2days"));
-        $date_start1 = date('Y-m-d', strtotime("+3days"));
-        $date_end = date('Y-m-d', strtotime("+11days"));
-        $date_end1 = date('Y-m-d', strtotime($date_start1 . " +{$count} days"));
-        $date_ = array();
-        $date1_ = array();
+        // $mount = Mountain::where('id', $mountId)->get();
 
-        //looping for date_start
-        while ($date_start <= $date_end) {
+        // foreach ($mount as $mount) {
+        //     $count = $mount->days;
+        // }
 
-            $date_start = date('Y-m-d', strtotime('+1 days', strtotime($date_start)));
-            $date_[] = $date_start;
-        }
-        //End looping
+        // $date_start = date('Y-m-d', strtotime("+2days"));
+        // $date_start1 = date('Y-m-d', strtotime("+3days"));
+        // $date_end = date('Y-m-d', strtotime("+11days"));
+        // $date_end1 = date('Y-m-d', strtotime($date_start1 . " +{$count} days"));
+        // $date_ = array();
+        // $date1_ = array();
 
-        //looping for date_start
-        while ($date_start1 < $date_end1) {
+        // //looping for date_start
+        // while ($date_start <= $date_end) {
 
-            $date_start1 = date('Y-m-d', strtotime('+1 days', strtotime($date_start1)));
-            $date1_[] = $date_start1;
-        }
-        //End looping
+        //     $date_start = date('Y-m-d', strtotime('+1 days', strtotime($date_start)));
+        //     $date_[] = $date_start;
+        // }
+        // //End looping
 
-        return view('admin.editRegist')->with('hike', $hike)->with('member', $member)->with('date_start', $date_)->with('date_end', $date1_);
+        // //looping for date_start
+        // while ($date_start1 < $date_end1) {
+
+        //     $date_start1 = date('Y-m-d', strtotime('+1 days', strtotime($date_start1)));
+        //     $date1_[] = $date_start1;
+        // }
+        // //End looping
+
+        return view('admin.editRegist', $data)->with('hike', $hike)->with('member', $member);
     }
 
     /**
      * Update the specified resource in storage.
      *
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        // print $request->payment;
+        //Update Regist
+        $regist = Regist::where('registId', $id);
+        $data = [
+            'payment' => $request->payment,
+            'status' => $request->status
+        ];
+
+        $regist->update($data);
+        //End
+
+        //Update member
+        $member = $request->input('member');
+
+        foreach ($member as $row) {
+
+            $member = Member::find($row['id']);
+            $member->identity = $row['identity'];
+            $member->member_email = $row['email'];
+            $member->phone = $row['phone_number'];
+            $member->member_name = $row['name'];
+            $member->birthdate = $row['birthdate'];
+            $member->gender = $row['gender'];
+            $member->address = $row['address'];
+            $member->save();
+        }
+        //End
+
+        return "done";
     }
 
     /**
