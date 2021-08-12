@@ -60,9 +60,10 @@ class MountainController extends Controller
         // // // looping for date
         $date_start = $date;
         $date_end = date('Y-m-d', strtotime($date_start . " +{$count} days"));
+        $date_end1 = date('Y-m-d', strtotime($date_end . "-1days"));
         $date_ = array();
 
-        while ($date_start < $date_end) {
+        while ($date_start < $date_end1) {
 
             $date_start = date('Y-m-d', strtotime('+1 days', strtotime($date_start)));
             $date_[] = $date_start;

@@ -128,7 +128,6 @@ class CrudRegistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // print $request->payment;
         //Update Regist
         $regist = Regist::where('registId', $id);
         $data = [
@@ -156,7 +155,7 @@ class CrudRegistController extends Controller
         }
         //End
 
-        return "done";
+        return redirect('/admin')->with(['success' => 'Data updated successfully!']);
     }
 
     /**
@@ -167,6 +166,31 @@ class CrudRegistController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $regist = Regist::where('registId', $id);
+        $hikeId = [];
+        foreach ($regist->get() as $regist) {
+            $hikeId[] = $regist->hikes_id;
+        }
+        //Delete Regist
+        $regist->delete();
+        //End
+
+        //Delete Hike
+        $hike = Hike::where('id', $hikeId);
+        $hike->delete();
+        //End
+
+        //Delete Member
+        $member = Member::where('regists_id', $id);
+        foreach ($member->get() as $m) {
+            $m->delete();
+        }
+        //End
+        return redirect()->route('blog.index')->with(['success' => 'Data deleted successfully!']);
+    }
+
+    public function inputRegist()
+    {
+        return view('admin.input-regist');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mountain;
+use Illuminate\Support\Facades\Storage;
 
 class CrudMountainController extends Controller
 {
@@ -123,6 +124,13 @@ class CrudMountainController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mount = Mountain::findOrFail($id);
+
+        $path = public_path() . '/img/Mountain/';
+        $file_old = $path . $mount->img;
+        unlink($file_old);
+
+        $mount->delete();
+        return redirect('/admin')->with(['success' => 'Data deleted successfully!']);
     }
 }

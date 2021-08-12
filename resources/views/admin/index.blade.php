@@ -131,7 +131,9 @@
 				  <th class="min-width">
 					<h6 class="text-sm text-medium">Role</h6>
 				  </th>
-				  <th></th>
+				  <th>
+					<h6 class="text-sm text-medium">Action</h6>
+				  </th>
 				</tr>
 			  </thead>
 			  <tbody>
@@ -154,6 +156,20 @@
 							<p class="text-sm">{{ $r->role}}</p>
 						@endforeach
 					</td>
+					<td>
+						<div class="action justify-content-start">
+							<div class="action justify-content-end">
+								<button class="more-btn ml-10 dropdown-toggle" id="moreAction1" data-bs-toggle="dropdown" aria-expanded="false">
+									<i class="lni lni-more-alt"></i>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreAction1">
+									<li class="dropdown-item">
+										<a href="#" class="text-gray">Remove</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					  </td>
 				  </tr>
 				  @endforeach
 			  </tbody>
@@ -195,7 +211,9 @@
 				  <th class="min-width">
 					<h6 class="text-sm text-medium">Maximum Stay</h6>
 				  </th>
-				  <th></th>
+				  <th>
+					<h6 class="text-sm text-medium">Action</h6>
+				  </th>
 				</tr>
 			  </thead>
 			  <tbody>
@@ -220,8 +238,23 @@
 					<p class="text-sm">{{ $mount->days }}</p>
 				  </td>
 				  <td>
-					<div class="action justify-content-end">
-						<a href="{{ route('CrudMountain.show', $mount->id) }}" class="main-btn dark-btn rounded-md btn-hover btn-sm text-sm" style="padding: 5px;">Details</a>
+					<div class="action justify-content-start">
+						<div class="action justify-content-end">
+							<button class="more-btn ml-10 dropdown-toggle" id="moreAction1" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="lni lni-more-alt"></i>
+							</button>
+							<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreAction1">
+								<li class="dropdown-item">
+									<a href="{{ url('/removeMountain/'. $mount->id); }}" class="text-gray">Remove</a>
+								</li>
+								<li class="dropdown-item">
+									<a href="{{ route('CrudMountain.edit', $mount->id) }}" class="text-gray">Edit</a>
+								</li>
+								<li class="dropdown-item">
+									<a href="{{ route('CrudMountain.show', $mount->id) }}" class="text-gray">Details</a>
+								</li>
+							</ul>
+						</div>
 					</div>
 				  </td>
 				</tr>
@@ -277,7 +310,9 @@
 					<th class="min-width">
 					<h6 class="text-sm text-medium">Payment</h6>
 					</th>
-					<th></th>
+					<th>
+					<h6 class="text-sm text-medium">Action</h6>
+					</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -317,8 +352,21 @@
 					<p class="text-sm">{{ $result->payment }}</p>
 				  </td>
 				  <td>
-					<div class="action justify-content-end">
-						<a href="{{ route('CrudRegist.show', $result->registId) }}" class="main-btn dark-btn rounded-md btn-hover btn-sm text-sm" style="padding: 5px;">Details</a>
+					<div class="action justify-content-start">
+						<button class="more-btn ml-10 dropdown-toggle" id="moreAction1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="lni lni-more-alt"></i>
+                        </button>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreAction1">
+							<li class="dropdown-item">
+								<a href="{{ url('/removeRegist/'. $result->registId); }}" class="text-gray">Remove</a>
+							</li>
+							<li class="dropdown-item">
+								<a href="{{ route('CrudRegist.edit', $result->registId); }}" class="text-gray">Edit</a>
+							</li>
+							<li class="dropdown-item">
+								<a href="{{ route('CrudRegist.show', $result->registId) }}" class="text-gray">Details</a>
+							</li>
+						</ul>
 					</div>
 				  </td>
 				</tr>

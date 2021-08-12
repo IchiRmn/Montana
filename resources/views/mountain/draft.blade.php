@@ -123,7 +123,7 @@
             </div>
             <div class="row text-start">
               <div class="col">
-                <a class="btn btn-secondary btn" style="margin-right: 10px">Back to home</a>
+                <a class="btn btn-secondary btn" style="margin-right: 10px" href="{{ url('/list') }}">Back to home</a>
                 <a class="btn btn-danger btn" href="{{ url('/print-pdf/'.$id_regist) }}">
                   <i class="bi bi-file-earmark-pdf-fill"></i>
                   Print PDF

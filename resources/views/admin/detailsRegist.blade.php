@@ -25,7 +25,7 @@
           <div class="card-style settings-card-1">
             <div class="title mb-30 d-flex justify-content-between align-items-center">
               <h2><b> </b></h2>
-              <a href="{{ route('CrudMountain.edit',$hike->registId); }}" >
+              <a href="{{ route('CrudRegist.edit', $hike->registId); }}" >
                 <button class="border-0 bg-transparent">
                   <i class="lni lni-pencil-alt"></i>
                 </button>

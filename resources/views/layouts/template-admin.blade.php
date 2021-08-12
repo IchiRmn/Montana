@@ -43,13 +43,8 @@
               <span class="text">Users</span>
             </a>
             <ul id="ddmenu_1" class="collapse dropdown-nav">
-              <li>
-                <a href="index.html">
-                  <i class="lni lni-arrow-right"></i> Show
-                </a>
-              </li>
-			  <li>
-                <a href="index.html">
+			        <li>
+                <a href="{{ url('/inputRegist') }}">
                   <i class="lni lni-arrow-right"></i> Input Data
                 </a>
               </li>
@@ -69,12 +64,7 @@
               <span class="text">Destination</span>
             </a>
             <ul id="ddmenu_2" class="collapse dropdown-nav">
-              <li>
-                <a href="index.html">
-                  <i class="lni lni-arrow-right"></i> Show
-                </a>
-              </li>
-			  <li>
+			        <li>
                 <a href="index.html">
                   <i class="lni lni-arrow-right"></i> Input Data
                 </a>
@@ -95,12 +85,7 @@
               <span class="text">Registration</span>
             </a>
             <ul id="ddmenu_3" class="collapse dropdown-nav">
-              <li>
-                <a href="index.html">
-                  <i class="lni lni-arrow-right"></i> Show
-                </a>
-              </li>
-			  <li>
+			        <li>
                 <a href="index.html">
                   <i class="lni lni-arrow-right"></i> Input Data
                 </a>
