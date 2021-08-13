@@ -11,6 +11,8 @@ use App\Models\Hike;
 use App\Models\User;
 use App\Models\Quota;
 
+use PDF;
+
 class CrudRegistController extends Controller
 {
     /**
@@ -350,5 +352,19 @@ class CrudRegistController extends Controller
             'member' => $request->member,
         ];
         return view('admin.input-regist-third', $data)->with('date_end', $date1_);
+    }
+
+    public function outputPDF()
+    {
+        $result = Regist::result();
+        $regist = Regist::regist();
+
+        $data = [
+            'result' => $result,
+            'regist' => $regist
+        ];
+
+        $pdf = PDF::loadview('output.regist', $data);
+        return $pdf->stream();
     }
 }

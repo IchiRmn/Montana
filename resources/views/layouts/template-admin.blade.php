@@ -44,7 +44,7 @@
             </a>
             <ul id="ddmenu_1" class="collapse dropdown-nav">
 			        <li>
-                <a href="">
+                <a href="{{ route('CrudUser.create') }}">
                   <i class="lni lni-arrow-right"></i> Input Data
                 </a>
               </li>
@@ -65,7 +65,7 @@
             </a>
             <ul id="ddmenu_2" class="collapse dropdown-nav">
 			        <li>
-                <a href="index.html">
+                <a href="{{ route('CrudMountain.create') }}">
                   <i class="lni lni-arrow-right"></i> Input Data
                 </a>
               </li>
@@ -110,17 +110,17 @@
             </a>
             <ul id="ddmenu_4" class="collapse dropdown-nav">
               <li>
-                <a href="index.html">
+                <a href="{{ url('/userPDF') }}">
                   <i class="lni lni-arrow-right"></i> User
                 </a>
               </li>
 			  <li>
-                <a href="index.html">
+                <a href="{{ url('/mountPDF') }}">
                   <i class="lni lni-arrow-right"></i> Destination
                 </a>
               </li>	
 			  <li>
-                <a href="index.html">
+                <a href="{{ url('/registPDF') }}">
                   <i class="lni lni-arrow-right"></i> Registration
                 </a>
               </li>

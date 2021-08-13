@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Mountain;
 use Illuminate\Support\Facades\Storage;
 
+use PDF;
+
 class CrudMountainController extends Controller
 {
     /**
@@ -25,6 +27,8 @@ class CrudMountainController extends Controller
      */
     public function create()
     {
+        $mount = Mountain::all();
+        return view('admin/inputMountain')->with('mount', $mount);
     }
 
     /**
@@ -35,7 +39,34 @@ class CrudMountainController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:2',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:6048',
+            'height' => 'required|numeric',
+            'maximum_member' => 'required|numeric',
+            'quota' => 'required|numeric',
+            'maximum_stay' => 'required|numeric',
+            'description' => 'required|min:30'
+        ]);
+
+        //upload new file
+        $path = public_path() . '/img/Mountain/';
+        $file = $request->image;
+        $filename = $file->getClientOriginalName();
+        $file->move($path, $filename);
+
+        Mountain::create([
+            'mountain_name' => $request->name,
+            'height' => $request->height,
+            'img' => $request->image,
+            'max' => $request->maximum_member,
+            'quota' => $request->quota,
+            'days' => $request->maximum_stay,
+            'description' => $request->description,
+        ]);
+
+
+        return redirect('/admin')->with(['success' => 'Input data successfully!']);
     }
 
     /**
@@ -132,5 +163,14 @@ class CrudMountainController extends Controller
 
         $mount->delete();
         return redirect('/admin')->with(['success' => 'Data deleted successfully!']);
+    }
+    public function outputPDF()
+    {
+        $mount = Mountain::all();
+        $data = [
+            'mount' => $mount
+        ];
+        $pdf = PDF::loadview('output.mountain', $data);
+        return $pdf->stream();
     }
 }

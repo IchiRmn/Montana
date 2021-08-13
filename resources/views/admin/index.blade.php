@@ -164,7 +164,7 @@
 								</button>
 								<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="moreAction1">
 									<li class="dropdown-item">
-										<a href="#" class="text-gray">Remove</a>
+										<a href="{{ url('/removeUser/'. $auth->id);  }}" class="text-gray">Remove</a>
 									</li>
 								</ul>
 							</div>
