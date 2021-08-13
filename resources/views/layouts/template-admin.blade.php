@@ -44,7 +44,7 @@
             </a>
             <ul id="ddmenu_1" class="collapse dropdown-nav">
 			        <li>
-                <a href="{{ url('/inputRegist') }}">
+                <a href="">
                   <i class="lni lni-arrow-right"></i> Input Data
                 </a>
               </li>
@@ -86,7 +86,7 @@
             </a>
             <ul id="ddmenu_3" class="collapse dropdown-nav">
 			        <li>
-                <a href="index.html">
+                <a href="{{ url('/input-regist-first') }}">
                   <i class="lni lni-arrow-right"></i> Input Data
                 </a>
               </li>

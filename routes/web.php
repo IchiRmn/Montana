@@ -37,7 +37,10 @@ Route::resource('CrudRegist', CrudRegistController::class)->middleware('role:1')
 
 Route::get('/removeRegist/{id}', [CrudRegistController::class, 'destroy']);
 Route::get('/removeMountain/{id}', [CrudMountainController::class, 'destroy']);
-Route::get('/inputRegist', [CrudRegistController::class, 'inputRegist']);
+
+Route::get('/input-regist-first', [CrudRegistController::class, 'input_regist_first']);
+Route::post('/input-regist-second', [CrudRegistController::class, 'input_regist_second']);
+Route::post('/input-regist-third', [CrudRegistController::class, 'input_regist_third']);
 
 Route::get('/list', [MountainController::class, 'index']);
 Route::get('/mount/{id}', [MountainController::class, 'show']);

@@ -8,6 +8,8 @@ use App\Models\Regist;
 use App\Models\Member;
 use App\Models\Mountain;
 use App\Models\Hike;
+use App\Models\User;
+use App\Models\Quota;
 
 class CrudRegistController extends Controller
 {
@@ -39,7 +41,104 @@ class CrudRegistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kode = Regist::Code($request);
+        $regist_model = new Regist();
+        $regist_model->Code($request);
+
+        $hikes_id = Hike::Code();
+
+        $idMounts = $request->idMount;
+        $member = $request->member;
+        $date_start = $request->date_start;
+
+        $date_end = $request->date_end;
+        $payment = $request->payment;
+
+        $mountain = Mountain::where('id', $idMounts)->get();
+
+        $identity = $request->identity;
+        $name = $request->name;
+        $email = $request->email;
+        $phone = $request->phone;
+        $birth = $request->birthdate;
+        $gender = $request->gender;
+        $address = $request->address;
+
+        //Insert Regist Table
+        Regist::create([
+            'registId' => $kode,
+            'users_id' => $request->registrant,
+            'hikes_id' => $hikes_id,
+            'payment' => $payment,
+        ]);
+        //End
+
+        //Insert Hikes Table
+        Hike::create([
+            'mountains_id' => $idMounts,
+            'date_start' => $date_start,
+            'date_end' => $date_end,
+        ]);
+        //End
+
+        $identitys = [];
+        $names = [];
+        $emails = [];
+        $phones = [];
+        $births = [];
+        $genders = [];
+        $addresses = [];
+
+        // Looping Member Data
+        for ($i = 0; $i < count($name); $i++) {
+
+            member::create([
+                'regists_id' => $kode,
+                'identity' => $identity[$i],
+                'member_email' => $email[$i],
+                'phone' => $phone[$i],
+                'member_name' => $name[$i],
+                'birthdate' => $birth[$i],
+                'gender' =>  $gender[$i],
+                'address' => $address[$i],
+            ]);
+
+            $identitys[] = $identity[$i];
+            $names[] = $name[$i];
+            $emails[] = $email[$i];
+            $phones[] = $phone[$i];
+            $births[] = $birth[$i];
+            $genders[] = $gender[$i];
+            $addresses[] = $address[$i];
+        }
+        // End Looping
+
+        //End
+
+        //Update Quuta
+        $quota = mountain::where('id', $idMounts)->get();
+        $quota0 = quota::where('quota_date', $date_start)->where('mount_id', $idMounts);
+
+        if ($quota0->exists()) {
+            foreach ($quota0->get() as $quota0) {
+
+                $new_quota = $quota0->quota - $member;
+            }
+            quota::where('quota_date', $date_start)->update(['quota' => $new_quota]);
+        } else {
+
+            foreach ($quota as $quota) {
+
+                $new_quota1 = $quota->quota - $member;
+            }
+            quota::create([
+                'mount_id' => $idMounts,
+                'quota' => $new_quota1,
+                'quota_date' => $date_start,
+            ]);
+        }
+        //End
+        return redirect('/admin')->with(['success' => 'Input data successfully!']);
     }
 
     /**
@@ -186,11 +285,70 @@ class CrudRegistController extends Controller
             $m->delete();
         }
         //End
-        return redirect()->route('blog.index')->with(['success' => 'Data deleted successfully!']);
+        return redirect('/admin')->with(['success' => 'Data deleted successfully!']);
     }
 
-    public function inputRegist()
+    public function input_regist_first()
     {
-        return view('admin.input-regist');
+        $user = User::all();
+        $mount = Mountain::all();
+
+        return view('admin.input-regist-first')->with('user', $user)->with('mount', $mount);
+    }
+    public function input_regist_second(Request $request)
+    {
+        $mount = Mountain::where('id', $request->destination)->get();
+
+        $date_start = date('Y-m-d', strtotime("+2days"));
+        $date_end = date('Y-m-d', strtotime("+11days"));
+        $date_ = array();
+
+        //looping for date_start
+        while ($date_start <= $date_end) {
+
+            $date_start = date('Y-m-d', strtotime('+1 days', strtotime($date_start)));
+            $date_[] = $date_start;
+        }
+        //End looping
+
+        $data = [
+            'registrant' => $request->registrant,
+            'destination' => $request->destination,
+            'payment' => $request->payment,
+        ];
+
+        return view('admin.input-regist-second', $data)->with('date_start', $date_)->with('mount', $mount);
+    }
+
+    public function input_regist_third(Request $request)
+    {
+
+        $mount = Mountain::where('id', $request->destination)->get();
+
+        foreach ($mount as $mount) {
+            $count = $mount->days;
+        }
+
+        $date_start = $request->date_start;
+
+        $date_end = date('Y-m-d', strtotime($date_start . " +{$count} days"));
+        $date_end1 = date('Y-m-d', strtotime($date_end . "-1days"));
+        $date1_ = array();
+        //looping for date_end
+        while ($date_start < $date_end1) {
+
+            $date_start = date('Y-m-d', strtotime('+1 days', strtotime($date_start)));
+            $date1_[] = $date_start;
+        }
+        //End looping
+
+        $data = [
+            'registrant' => $request->registrant,
+            'destination' => $request->destination,
+            'payment' => $request->payment,
+            'date_start' => $request->date_start,
+            'member' => $request->member,
+        ];
+        return view('admin.input-regist-third', $data)->with('date_end', $date1_);
     }
 }
