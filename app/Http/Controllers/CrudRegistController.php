@@ -273,7 +273,8 @@ class CrudRegistController extends Controller
             $hikeId[] = $regist->hikes_id;
         }
         //Delete Regist
-        $regist->delete();
+        $re = Regist::where('registId', $id);
+        $re->delete();
         //End
 
         //Delete Hike
