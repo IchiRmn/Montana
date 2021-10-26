@@ -14,14 +14,14 @@ class CreateMountainsTable extends Migration
     public function up()
     {
         Schema::create('mountains', function (Blueprint $table) {
-            $table->id();
-            $table->string('mountain_name');
-            $table->integer('height');
-            $table->string('img');
+            $table->increments('id');
+            $table->string('mountain_name', 25);
+            $table->smallInteger('height');
+            $table->string('img', 45);
             $table->text('description');
-            $table->integer('days');
-            $table->integer('quota');
-            $table->integer('max');
+            $table->tinyInteger('days');
+            $table->smallInteger('quota');
+            $table->tinyInteger('max');
             $table->timestamps();
         });
     }

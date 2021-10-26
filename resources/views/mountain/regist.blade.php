@@ -16,7 +16,7 @@
 
 <main id="main">
 
-<form action="/inputRegist" method="POST" data-aos-delay="100" id="form" name="form" class="needs-validation" novalidate>
+<form action="/inputRegist" method="POST" data-aos-delay="100" id="form" name="form" class="needs-validation" enctype="multipart/form-data" novalidate>
   @csrf
   <!-- ======= Registration Section ======= -->
   <section id="specials" class="specials">

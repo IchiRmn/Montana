@@ -14,10 +14,10 @@ class CreateQuotasTable extends Migration
     public function up()
     {
         Schema::create('quotas', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('mount_id');
-            $table->integer('quota');
-            $table->string('quota_date');
+            $table->smallInteger('quota');
+            $table->string('quota_date', 11);
             $table->timestamps();
         });
     }

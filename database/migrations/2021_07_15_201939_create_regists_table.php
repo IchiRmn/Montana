@@ -14,12 +14,11 @@ class CreateRegistsTable extends Migration
     public function up()
     {
         Schema::create('regists', function (Blueprint $table) {
-            $table->id();
-            $table->string('registId');
-            $table->string('users_id');
-            $table->string('hikes_id');
-            $table->string('payment');
-            $table->string('status')->default('Unpaid');
+            $table->string('registId', 11)->primary();
+            $table->string('users_id', 11);
+            $table->string('hikes_id', 11);
+            $table->char('payment', 11);
+            $table->char('status', 6)->default('Unpaid');
             $table->timestamps();
         });
     }

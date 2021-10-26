@@ -61,6 +61,7 @@ class RegistController extends Controller
         $birth = $request->birthdate;
         $gender = $request->gender;
         $address = $request->address;
+        // $image = $request->file('selfie');
         
         //Insert Regist Table
         Regist::create([
@@ -87,6 +88,8 @@ class RegistController extends Controller
         $genders = [];
         $addresses = [];
 
+        // $path = storage_path() . '/img/Members/';
+
         // Looping Member Data
         for ($i = 0; $i < count($name); $i++) {
 
@@ -100,6 +103,17 @@ class RegistController extends Controller
                 'gender' =>  $gender[$i],
                 'address' => $address[$i],
             ]);
+
+            //upload new file
+
+            // $file = $image[$i];
+            // $extension = $file->getClientOriginalExtension(); // file extension
+            // $fileName = uniqid() . '.' . $extension; // file name with extension
+            // $file->move($path, $fileName); // move file to our uploads path
+    
+
+            // $filename = $identity;
+            // $file->move($path, $filename);
 
             $identitys[] = $identity[$i];
             $names[] = $name[$i];

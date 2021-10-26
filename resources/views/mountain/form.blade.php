@@ -95,14 +95,28 @@
                           Excellent! 
                       </div> 
                 </div>
-                
+
+                <div class="col-lg-4 col-md-6 mt-3 mb-4 form-floating"> 
+                    <div class="input-group" >
+                        <input type="file" class="form-control" style="height: 88px; padding-top: 45px; " name="selfie[]" id="selfie" value="{{ old('selfie') }}" autocomplete="selfie" placeholder=" " aria-describedby="inputGroupFileAddon03" aria-label="Upload" required>
+                        <button class="btn btn-outline-primary" type="button" id="inputGroupFileAddon03" data-bs-toggle="modal" data-bs-target="#photo">Example</button>
+                    </div>
+                    <label for="selfie" style="padding-top: 0px; margin-top: 7px;">Selfie with identity card</label>
+                    <small style="font-size: 12px" class="text-secondary">This function isn't working properly</small>
+                    <div class="invalid-tooltip">
+                        Please select your image, maximum 2 mb
+                      </div>  
+                      <div class="valid-tooltip">
+                          Excellent! 
+                      </div>
+                </div> 
+      
                 <input type="text" name="idMount" id="idMount" value={{ $id }} hidden>
                 <input type="text" name="dateStart" id="dateStart" value={{ $date }} hidden>
                 <input type="text" name="member" id="member" value={{ $member }} hidden>
                 
             </div> 
-             
-            
+               
         </div>
         @endfor
 
@@ -113,6 +127,9 @@
             </button>
         </div>
         @include('modals.confirm')
+        
     </div>
 </section><!-- End Form Section -->
 </form>
+@include('modals.example')
+

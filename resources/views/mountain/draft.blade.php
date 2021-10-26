@@ -116,6 +116,14 @@
                               <div class="mt-2">: {{ $address[$index] }}</div>
                          </div>
                       </div>
+                      <div class="row mt-3">
+                        <div class="col">
+                          <div class="text-center bg-secondary">Photo</div>
+                          <div class="mt-4 text-center">
+                            <img style="width: 50%; height: 50%;" src="{{ asset('img/Icons/identity.png') }}" alt="">
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
               </div>

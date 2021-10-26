@@ -14,10 +14,10 @@ class CreateHikesTable extends Migration
     public function up()
     {
         Schema::create('hikes', function (Blueprint $table) {
-            $table->id();
-            $table->string('mountains_id');
-            $table->string('date_start');
-            $table->string('date_end');
+            $table->increments('id');
+            $table->string('mountains_id', 11);
+            $table->string('date_start', 11);
+            $table->string('date_end', 11);
             $table->timestamps();
         });
     }
